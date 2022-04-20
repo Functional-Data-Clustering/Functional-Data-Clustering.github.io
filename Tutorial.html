@@ -24,10 +24,6 @@ li a:hover:not(.active) {
 	font-size: x-large;
 	background-color: #E4E7E9;
 }
-.auto-style3 {
-	text-align: center;
-	font-size: 40pt;
-}
 </style>
 </head>
 
@@ -47,36 +43,35 @@ li a:hover:not(.active) {
 <p><br /><br /></p>
 
 <p>Check our tutorials on state-of-the-art clustering methods! </p>
-<p><br /></p>
 
 
 <p>
-<table style="width: 100%">
+<table style="width: 100%; border-spacing: 30px;">
 	<tr>
 		<td><b>Acronym</b></td>
-		<td><b>Taxonomy</b></td>
-		<td><b>Algorithm</b></td>
 		<td><b>Data</b></td>
 		<td><b>Slides</b></td>
-		<td><b>Note</b></td>
+		<td style="width: 75%"><b>Note</b></td>
 	</tr>
 	<tr>
 		<td>
 		<a href="https://functional-data-clustering.github.io/Tutorials/REM.html" target="_blank">REM</a></td>
-		<td>Gaussian mixuture model</td>
-		<td>EM type</td>
 		<td>Tabular</td>
 		<td>
 		<a href="https://functional-data-clustering.github.io/Tutorials/REM_slides.pdf" target="_blank">Here</a></td>
-		<td>Improve the EM algorithm through better initialization.</td>
+		<td>An efficient solution to the initilization problem of the EM algorithm for clustering with Gaussian mixture models.
+		<br>It initializes the Gaussian means with density-peak exemplars in the 
+		data.</td>
 	</tr>
 		<tr>
 		<td>DCF</td>
-		<td>Peak finding</td>
-		<td> </td>
 		<td>Tabular</td>
 		<td>Here</td>
-		<td>Detect clusters of varying density and varyng shape.</td>
+		<td>Able to detect clusters of varying density and irregular shape, and 
+		applicable to big data with numerous clusters.<br>The idea is to detect 
+		high-density core regions, each region representing a cluster, and then 
+		assign each non-core point to the same cluster as its nearest neighbor 
+		of higher density.</td>
 	</tr>
 </table>
 
