@@ -71,15 +71,14 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
  */
 
 /* use standard opaque scrollbars for most nodes */
-[data-jp-theme-scrollbars='true'] {
+[data-jp-theme-scrollbars=true] {
   scrollbar-color: rgb(var(--jp-scrollbar-thumb-color))
     var(--jp-scrollbar-background-color);
 }
 
 /* for code nodes, use a transparent style of scrollbar. These selectors
  * will match lower in the tree, and so will override the above */
-[data-jp-theme-scrollbars='true'] .CodeMirror-hscrollbar,
-[data-jp-theme-scrollbars='true'] .CodeMirror-vscrollbar {
+[data-jp-theme-scrollbars=true] .CodeMirror-hscrollbar, [data-jp-theme-scrollbars=true] .CodeMirror-vscrollbar {
   scrollbar-color: rgba(var(--jp-scrollbar-thumb-color), 0.5) transparent;
 }
 
@@ -89,26 +88,25 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 
 /* use standard opaque scrollbars for most nodes */
 
-[data-jp-theme-scrollbars='true'] ::-webkit-scrollbar,
-[data-jp-theme-scrollbars='true'] ::-webkit-scrollbar-corner {
+[data-jp-theme-scrollbars=true] ::-webkit-scrollbar, [data-jp-theme-scrollbars=true] ::-webkit-scrollbar-corner {
   background: var(--jp-scrollbar-background-color);
 }
 
-[data-jp-theme-scrollbars='true'] ::-webkit-scrollbar-thumb {
+[data-jp-theme-scrollbars=true] ::-webkit-scrollbar-thumb {
   background: rgb(var(--jp-scrollbar-thumb-color));
   border: var(--jp-scrollbar-thumb-margin) solid transparent;
   background-clip: content-box;
   border-radius: var(--jp-scrollbar-thumb-radius);
 }
 
-[data-jp-theme-scrollbars='true'] ::-webkit-scrollbar-track:horizontal {
+[data-jp-theme-scrollbars=true] ::-webkit-scrollbar-track:horizontal {
   border-left: var(--jp-scrollbar-endpad) solid
     var(--jp-scrollbar-background-color);
   border-right: var(--jp-scrollbar-endpad) solid
     var(--jp-scrollbar-background-color);
 }
 
-[data-jp-theme-scrollbars='true'] ::-webkit-scrollbar-track:vertical {
+[data-jp-theme-scrollbars=true] ::-webkit-scrollbar-track:vertical {
   border-top: var(--jp-scrollbar-endpad) solid
     var(--jp-scrollbar-background-color);
   border-bottom: var(--jp-scrollbar-endpad) solid
@@ -117,33 +115,23 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 
 /* for code nodes, use a transparent style of scrollbar */
 
-[data-jp-theme-scrollbars='true'] .CodeMirror-hscrollbar::-webkit-scrollbar,
-[data-jp-theme-scrollbars='true'] .CodeMirror-vscrollbar::-webkit-scrollbar,
-[data-jp-theme-scrollbars='true']
-  .CodeMirror-hscrollbar::-webkit-scrollbar-corner,
-[data-jp-theme-scrollbars='true']
-  .CodeMirror-vscrollbar::-webkit-scrollbar-corner {
+[data-jp-theme-scrollbars=true] .CodeMirror-hscrollbar::-webkit-scrollbar, [data-jp-theme-scrollbars=true] .CodeMirror-vscrollbar::-webkit-scrollbar, [data-jp-theme-scrollbars=true] .CodeMirror-hscrollbar::-webkit-scrollbar-corner, [data-jp-theme-scrollbars=true] .CodeMirror-vscrollbar::-webkit-scrollbar-corner {
   background-color: transparent;
 }
 
-[data-jp-theme-scrollbars='true']
-  .CodeMirror-hscrollbar::-webkit-scrollbar-thumb,
-[data-jp-theme-scrollbars='true']
-  .CodeMirror-vscrollbar::-webkit-scrollbar-thumb {
+[data-jp-theme-scrollbars=true] .CodeMirror-hscrollbar::-webkit-scrollbar-thumb, [data-jp-theme-scrollbars=true] .CodeMirror-vscrollbar::-webkit-scrollbar-thumb {
   background: rgba(var(--jp-scrollbar-thumb-color), 0.5);
   border: var(--jp-scrollbar-thumb-margin) solid transparent;
   background-clip: content-box;
   border-radius: var(--jp-scrollbar-thumb-radius);
 }
 
-[data-jp-theme-scrollbars='true']
-  .CodeMirror-hscrollbar::-webkit-scrollbar-track:horizontal {
+[data-jp-theme-scrollbars=true] .CodeMirror-hscrollbar::-webkit-scrollbar-track:horizontal {
   border-left: var(--jp-scrollbar-endpad) solid transparent;
   border-right: var(--jp-scrollbar-endpad) solid transparent;
 }
 
-[data-jp-theme-scrollbars='true']
-  .CodeMirror-vscrollbar::-webkit-scrollbar-track:vertical {
+[data-jp-theme-scrollbars=true] .CodeMirror-vscrollbar::-webkit-scrollbar-track:vertical {
   border-top: var(--jp-scrollbar-endpad) solid transparent;
   border-bottom: var(--jp-scrollbar-endpad) solid transparent;
 }
@@ -152,14 +140,14 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
  * Phosphor
  */
 
-.lm-ScrollBar[data-orientation='horizontal'] {
+.lm-ScrollBar[data-orientation=horizontal] {
   min-height: 16px;
   max-height: 16px;
   min-width: 45px;
   border-top: 1px solid #a0a0a0;
 }
 
-.lm-ScrollBar[data-orientation='vertical'] {
+.lm-ScrollBar[data-orientation=vertical] {
   min-width: 16px;
   max-width: 16px;
   min-height: 45px;
@@ -199,40 +187,36 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
   background: #a0a0a0;
 }
 
-.lm-ScrollBar[data-orientation='horizontal'] .lm-ScrollBar-thumb {
+.lm-ScrollBar[data-orientation=horizontal] .lm-ScrollBar-thumb {
   height: 100%;
   min-width: 15px;
   border-left: 1px solid #a0a0a0;
   border-right: 1px solid #a0a0a0;
 }
 
-.lm-ScrollBar[data-orientation='vertical'] .lm-ScrollBar-thumb {
+.lm-ScrollBar[data-orientation=vertical] .lm-ScrollBar-thumb {
   width: 100%;
   min-height: 15px;
   border-top: 1px solid #a0a0a0;
   border-bottom: 1px solid #a0a0a0;
 }
 
-.lm-ScrollBar[data-orientation='horizontal']
-  .lm-ScrollBar-button[data-action='decrement'] {
+.lm-ScrollBar[data-orientation=horizontal] .lm-ScrollBar-button[data-action=decrement] {
   background-image: var(--jp-icon-caret-left);
   background-size: 17px;
 }
 
-.lm-ScrollBar[data-orientation='horizontal']
-  .lm-ScrollBar-button[data-action='increment'] {
+.lm-ScrollBar[data-orientation=horizontal] .lm-ScrollBar-button[data-action=increment] {
   background-image: var(--jp-icon-caret-right);
   background-size: 17px;
 }
 
-.lm-ScrollBar[data-orientation='vertical']
-  .lm-ScrollBar-button[data-action='decrement'] {
+.lm-ScrollBar[data-orientation=vertical] .lm-ScrollBar-button[data-action=decrement] {
   background-image: var(--jp-icon-caret-up);
   background-size: 17px;
 }
 
-.lm-ScrollBar[data-orientation='vertical']
-  .lm-ScrollBar-button[data-action='increment'] {
+.lm-ScrollBar[data-orientation=vertical] .lm-ScrollBar-button[data-action=increment] {
   background-image: var(--jp-icon-caret-down);
   background-size: 17px;
 }
@@ -392,25 +376,19 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 
 
 /* <DEPRECATED> */
-.p-DockPanel-handle[data-orientation='horizontal'],
-/* </DEPRECATED> */
-.lm-DockPanel-handle[data-orientation='horizontal'] {
+.p-DockPanel-handle[data-orientation=horizontal], .lm-DockPanel-handle[data-orientation=horizontal] {
   cursor: ew-resize;
 }
 
 
 /* <DEPRECATED> */
-.p-DockPanel-handle[data-orientation='vertical'],
-/* </DEPRECATED> */
-.lm-DockPanel-handle[data-orientation='vertical'] {
+.p-DockPanel-handle[data-orientation=vertical], .lm-DockPanel-handle[data-orientation=vertical] {
   cursor: ns-resize;
 }
 
 
 /* <DEPRECATED> */
-.p-DockPanel-handle[data-orientation='horizontal']:after,
-/* </DEPRECATED> */
-.lm-DockPanel-handle[data-orientation='horizontal']:after {
+.p-DockPanel-handle[data-orientation=horizontal]:after, .lm-DockPanel-handle[data-orientation=horizontal]:after {
   left: 50%;
   min-width: 8px;
   transform: translateX(-50%);
@@ -418,9 +396,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 
 
 /* <DEPRECATED> */
-.p-DockPanel-handle[data-orientation='vertical']:after,
-/* </DEPRECATED> */
-.lm-DockPanel-handle[data-orientation='vertical']:after {
+.p-DockPanel-handle[data-orientation=vertical]:after, .lm-DockPanel-handle[data-orientation=vertical]:after {
   top: 50%;
   min-height: 8px;
   transform: translateY(-50%);
@@ -580,17 +556,13 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 
 
 /* <DEPRECATED> */
-.p-ScrollBar[data-orientation='horizontal'],
-/* </DEPRECATED> */
-.lm-ScrollBar[data-orientation='horizontal'] {
+.p-ScrollBar[data-orientation=horizontal], .lm-ScrollBar[data-orientation=horizontal] {
   flex-direction: row;
 }
 
 
 /* <DEPRECATED> */
-.p-ScrollBar[data-orientation='vertical'],
-/* </DEPRECATED> */
-.lm-ScrollBar[data-orientation='vertical'] {
+.p-ScrollBar[data-orientation=vertical], .lm-ScrollBar[data-orientation=vertical] {
   flex-direction: column;
 }
 
@@ -657,25 +629,19 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 
 
 /* <DEPRECATED> */
-.p-SplitPanel[data-orientation='horizontal'] > .p-SplitPanel-handle,
-/* </DEPRECATED> */
-.lm-SplitPanel[data-orientation='horizontal'] > .lm-SplitPanel-handle {
+.p-SplitPanel[data-orientation=horizontal] > .p-SplitPanel-handle, .lm-SplitPanel[data-orientation=horizontal] > .lm-SplitPanel-handle {
   cursor: ew-resize;
 }
 
 
 /* <DEPRECATED> */
-.p-SplitPanel[data-orientation='vertical'] > .p-SplitPanel-handle,
-/* </DEPRECATED> */
-.lm-SplitPanel[data-orientation='vertical'] > .lm-SplitPanel-handle {
+.p-SplitPanel[data-orientation=vertical] > .p-SplitPanel-handle, .lm-SplitPanel[data-orientation=vertical] > .lm-SplitPanel-handle {
   cursor: ns-resize;
 }
 
 
 /* <DEPRECATED> */
-.p-SplitPanel[data-orientation='horizontal'] > .p-SplitPanel-handle:after,
-/* </DEPRECATED> */
-.lm-SplitPanel[data-orientation='horizontal'] > .lm-SplitPanel-handle:after {
+.p-SplitPanel[data-orientation=horizontal] > .p-SplitPanel-handle:after, .lm-SplitPanel[data-orientation=horizontal] > .lm-SplitPanel-handle:after {
   left: 50%;
   min-width: 8px;
   transform: translateX(-50%);
@@ -683,9 +649,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 
 
 /* <DEPRECATED> */
-.p-SplitPanel[data-orientation='vertical'] > .p-SplitPanel-handle:after,
-/* </DEPRECATED> */
-.lm-SplitPanel[data-orientation='vertical'] > .lm-SplitPanel-handle:after {
+.p-SplitPanel[data-orientation=vertical] > .p-SplitPanel-handle:after, .lm-SplitPanel[data-orientation=vertical] > .lm-SplitPanel-handle:after {
   top: 50%;
   min-height: 8px;
   transform: translateY(-50%);
@@ -711,14 +675,12 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 }
 
 
-/* <DEPRECATED> */ .p-TabBar[data-orientation='horizontal'], /* </DEPRECATED> */
-.lm-TabBar[data-orientation='horizontal'] {
+/* <DEPRECATED> */ .p-TabBar[data-orientation=horizontal], .lm-TabBar[data-orientation=horizontal] {
   flex-direction: row;
 }
 
 
-/* <DEPRECATED> */ .p-TabBar[data-orientation='vertical'], /* </DEPRECATED> */
-.lm-TabBar[data-orientation='vertical'] {
+/* <DEPRECATED> */ .p-TabBar[data-orientation=vertical], .lm-TabBar[data-orientation=vertical] {
   flex-direction: column;
 }
 
@@ -734,17 +696,13 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 
 
 /* <DEPRECATED> */
-.p-TabBar[data-orientation='horizontal'] > .p-TabBar-content,
-/* </DEPRECATED> */
-.lm-TabBar[data-orientation='horizontal'] > .lm-TabBar-content {
+.p-TabBar[data-orientation=horizontal] > .p-TabBar-content, .lm-TabBar[data-orientation=horizontal] > .lm-TabBar-content {
   flex-direction: row;
 }
 
 
 /* <DEPRECATED> */
-.p-TabBar[data-orientation='vertical'] > .p-TabBar-content,
-/* </DEPRECATED> */
-.lm-TabBar[data-orientation='vertical'] > .lm-TabBar-content {
+.p-TabBar[data-orientation=vertical] > .p-TabBar-content, .lm-TabBar[data-orientation=vertical] > .lm-TabBar-content {
   flex-direction: column;
 }
 
@@ -789,18 +747,14 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 
 
 /* <DEPRECATED> */
-.p-TabBar.p-mod-dragging[data-orientation='horizontal'] .p-TabBar-tab,
-/* </DEPRECATED> */
-.lm-TabBar.lm-mod-dragging[data-orientation='horizontal'] .lm-TabBar-tab {
+.p-TabBar.p-mod-dragging[data-orientation=horizontal] .p-TabBar-tab, .lm-TabBar.lm-mod-dragging[data-orientation=horizontal] .lm-TabBar-tab {
   left: 0;
   transition: left 150ms ease;
 }
 
 
 /* <DEPRECATED> */
-.p-TabBar.p-mod-dragging[data-orientation='vertical'] .p-TabBar-tab,
-/* </DEPRECATED> */
-.lm-TabBar.lm-mod-dragging[data-orientation='vertical'] .lm-TabBar-tab {
+.p-TabBar.p-mod-dragging[data-orientation=vertical] .p-TabBar-tab, .lm-TabBar.lm-mod-dragging[data-orientation=vertical] .lm-TabBar-tab {
   top: 0;
   transition: top 150ms ease;
 }
@@ -2178,7 +2132,7 @@ a.bp3-button{
     transition:-webkit-transform 200ms cubic-bezier(0.4, 1, 0.75, 0.9);
     transition:transform 200ms cubic-bezier(0.4, 1, 0.75, 0.9);
     transition:transform 200ms cubic-bezier(0.4, 1, 0.75, 0.9), -webkit-transform 200ms cubic-bezier(0.4, 1, 0.75, 0.9); }
-    .bp3-collapse .bp3-collapse-body[aria-hidden="true"]{
+    .bp3-collapse .bp3-collapse-body[aria-hidden=true]{
       display:none; }
 
 .bp3-context-menu .bp3-popover-target{
@@ -3384,7 +3338,7 @@ a.bp3-button{
   .bp3-file-upload-input:focus, .bp3-file-upload-input.bp3-active{
     -webkit-box-shadow:0 0 0 1px #137cbd, 0 0 0 3px rgba(19, 124, 189, 0.3), inset 0 1px 1px rgba(16, 22, 26, 0.2);
             box-shadow:0 0 0 1px #137cbd, 0 0 0 3px rgba(19, 124, 189, 0.3), inset 0 1px 1px rgba(16, 22, 26, 0.2); }
-  .bp3-file-upload-input[type="search"], .bp3-file-upload-input.bp3-round{
+  .bp3-file-upload-input[type=search], .bp3-file-upload-input.bp3-round{
     border-radius:30px;
     -webkit-box-sizing:border-box;
             box-sizing:border-box;
@@ -3456,7 +3410,7 @@ a.bp3-button{
     line-height:40px;
     font-size:16px;
     padding-right:95px; }
-    .bp3-large .bp3-file-upload-input[type="search"], .bp3-large .bp3-file-upload-input.bp3-round{
+    .bp3-large .bp3-file-upload-input[type=search], .bp3-large .bp3-file-upload-input.bp3-round{
       padding:0 15px; }
     .bp3-large .bp3-file-upload-input::after{
       min-width:30px;
@@ -3670,7 +3624,7 @@ a.bp3-button{
     height:40px;
     line-height:40px;
     font-size:16px; }
-    .bp3-input-group.bp3-large .bp3-input[type="search"], .bp3-input-group.bp3-large .bp3-input.bp3-round{
+    .bp3-input-group.bp3-large .bp3-input[type=search], .bp3-input-group.bp3-large .bp3-input.bp3-round{
       padding:0 15px; }
     .bp3-input-group.bp3-large .bp3-input:not(:first-child){
       padding-left:40px; }
@@ -3693,7 +3647,7 @@ a.bp3-button{
     padding-left:8px;
     line-height:24px;
     font-size:12px; }
-    .bp3-input-group.bp3-small .bp3-input[type="search"], .bp3-input-group.bp3-small .bp3-input.bp3-round{
+    .bp3-input-group.bp3-small .bp3-input[type=search], .bp3-input-group.bp3-small .bp3-input.bp3-round{
       padding:0 12px; }
     .bp3-input-group.bp3-small .bp3-input:not(:first-child){
       padding-left:24px; }
@@ -3815,7 +3769,7 @@ a.bp3-button{
   .bp3-input:focus, .bp3-input.bp3-active{
     -webkit-box-shadow:0 0 0 1px #137cbd, 0 0 0 3px rgba(19, 124, 189, 0.3), inset 0 1px 1px rgba(16, 22, 26, 0.2);
             box-shadow:0 0 0 1px #137cbd, 0 0 0 3px rgba(19, 124, 189, 0.3), inset 0 1px 1px rgba(16, 22, 26, 0.2); }
-  .bp3-input[type="search"], .bp3-input.bp3-round{
+  .bp3-input[type=search], .bp3-input.bp3-round{
     border-radius:30px;
     -webkit-box-sizing:border-box;
             box-sizing:border-box;
@@ -3834,7 +3788,7 @@ a.bp3-button{
     height:40px;
     line-height:40px;
     font-size:16px; }
-    .bp3-input.bp3-large[type="search"], .bp3-input.bp3-large.bp3-round{
+    .bp3-input.bp3-large[type=search], .bp3-input.bp3-large.bp3-round{
       padding:0 15px; }
   .bp3-input.bp3-small{
     height:24px;
@@ -3842,7 +3796,7 @@ a.bp3-button{
     padding-left:8px;
     line-height:24px;
     font-size:12px; }
-    .bp3-input.bp3-small[type="search"], .bp3-input.bp3-small.bp3-round{
+    .bp3-input.bp3-small[type=search], .bp3-input.bp3-small.bp3-round{
       padding:0 12px; }
   .bp3-input.bp3-fill{
     -webkit-box-flex:1;
@@ -7270,21 +7224,17 @@ span.bp3-popover-target{
     background-color:#db3737; }
 
 .bp3-slider-handle{
-  -webkit-box-shadow:inset 0 0 0 1px rgba(16, 22, 26, 0.2), inset 0 -1px 0 rgba(16, 22, 26, 0.1);
-          box-shadow:inset 0 0 0 1px rgba(16, 22, 26, 0.2), inset 0 -1px 0 rgba(16, 22, 26, 0.1);
   background-color:#f5f8fa;
-  background-image:-webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.8)), to(rgba(255, 255, 255, 0)));
-  background-image:linear-gradient(to bottom, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0));
-  color:#182026;
-  position:absolute;
-  top:0;
-  left:0;
-  border-radius:3px;
-  -webkit-box-shadow:0 0 0 1px rgba(16, 22, 26, 0.2), 0 1px 1px rgba(16, 22, 26, 0.2);
-          box-shadow:0 0 0 1px rgba(16, 22, 26, 0.2), 0 1px 1px rgba(16, 22, 26, 0.2);
-  cursor:pointer;
-  width:16px;
-  height:16px; }
+    color: #182026;
+	position: absolute;
+	top: 0;
+	left: 0;
+	border-radius: 3px;
+	cursor: pointer;
+	width: 16px;
+	height: 16px;
+	background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0));
+}
   .bp3-slider-handle:hover{
     -webkit-box-shadow:inset 0 0 0 1px rgba(16, 22, 26, 0.2), inset 0 -1px 0 rgba(16, 22, 26, 0.1);
             box-shadow:inset 0 0 0 1px rgba(16, 22, 26, 0.2), inset 0 -1px 0 rgba(16, 22, 26, 0.1);
@@ -7525,7 +7475,7 @@ span.bp3-popover-target{
       border-radius:3px;
       width:100%;
       padding:0 10px; }
-      .bp3-tabs.bp3-vertical > .bp3-tab-list .bp3-tab[aria-selected="true"]{
+      .bp3-tabs.bp3-vertical > .bp3-tab-list .bp3-tab[aria-selected=true]{
         -webkit-box-shadow:none;
                 box-shadow:none;
         background-color:rgba(19, 124, 189, 0.2); }
@@ -7582,10 +7532,10 @@ span.bp3-popover-target{
     -webkit-box-shadow:none !important;
             box-shadow:none !important;
     background-color:transparent !important; }
-  .bp3-tab[aria-disabled="true"]{
+  .bp3-tab[aria-disabled=true]{
     cursor:not-allowed;
     color:rgba(92, 112, 128, 0.6); }
-  .bp3-tab[aria-selected="true"]{
+  .bp3-tab[aria-selected=true]{
     border-radius:0;
     -webkit-box-shadow:inset 0 -3px 0 #106ba3;
             box-shadow:inset 0 -3px 0 #106ba3; }
@@ -7599,7 +7549,7 @@ span.bp3-popover-target{
 
 .bp3-tab-panel{
   margin-top:20px; }
-  .bp3-tab-panel[aria-hidden="true"]{
+  .bp3-tab-panel[aria-hidden=true]{
     display:none; }
 
 .bp3-tab-indicator-wrapper{
@@ -7630,9 +7580,9 @@ span.bp3-popover-target{
 
 .bp3-dark .bp3-tab{
   color:#f5f8fa; }
-  .bp3-dark .bp3-tab[aria-disabled="true"]{
+  .bp3-dark .bp3-tab[aria-disabled=true]{
     color:rgba(167, 182, 194, 0.6); }
-  .bp3-dark .bp3-tab[aria-selected="true"]{
+  .bp3-dark .bp3-tab[aria-selected=true]{
     -webkit-box-shadow:inset 0 -3px 0 #48aff0;
             box-shadow:inset 0 -3px 0 #48aff0; }
   .bp3-dark .bp3-tab[aria-selected="true"], .bp3-dark .bp3-tab:not([aria-disabled="true"]):hover{
@@ -11946,7 +11896,7 @@ THE SOFTWARE.
   padding: 0 var(--jp-code-padding);
 }
 
-.jp-CodeMirrorEditor[data-type='inline'] .CodeMirror-dialog {
+.jp-CodeMirrorEditor[data-type=inline] .CodeMirror-dialog {
   background-color: var(--jp-layout-color0);
   color: var(--jp-content-font-color1);
 }
@@ -11970,13 +11920,13 @@ THE SOFTWARE.
   cursor: text;
 }
 
-.jp-CodeMirrorEditor[data-type='inline'] .CodeMirror-cursor {
+.jp-CodeMirrorEditor[data-type=inline] .CodeMirror-cursor {
   border-left: var(--jp-code-cursor-width0) solid var(--jp-editor-cursor-color);
 }
 
 /* When zoomed out 67% and 33% on a screen of 1440 width x 900 height */
 @media screen and (min-width: 2138px) and (max-width: 4319px) {
-  .jp-CodeMirrorEditor[data-type='inline'] .CodeMirror-cursor {
+  .jp-CodeMirrorEditor[data-type=inline] .CodeMirror-cursor {
     border-left: var(--jp-code-cursor-width1) solid
       var(--jp-editor-cursor-color);
   }
@@ -11984,7 +11934,7 @@ THE SOFTWARE.
 
 /* When zoomed out less than 33% */
 @media screen and (min-width: 4320px) {
-  .jp-CodeMirrorEditor[data-type='inline'] .CodeMirror-cursor {
+  .jp-CodeMirrorEditor[data-type=inline] .CodeMirror-cursor {
     border-left: var(--jp-code-cursor-width2) solid
       var(--jp-editor-cursor-color);
   }
@@ -12323,7 +12273,7 @@ THE SOFTWARE.
   text-decoration: underline;
 }
 
-.jp-RenderedText[data-mime-type='application/vnd.jupyter.stderr'] {
+.jp-RenderedText[data-mime-type="application/vnd.jupyter.stderr"] {
   background: var(--jp-rendermime-error-background);
   padding-top: var(--jp-code-padding);
 }
@@ -12602,16 +12552,16 @@ THE SOFTWARE.
 }
 
 /* Change color behind transparent images if they need it... */
-[data-jp-theme-light='false'] .jp-RenderedImage img.jp-needs-light-background {
+[data-jp-theme-light=false] .jp-RenderedImage img.jp-needs-light-background {
   background-color: var(--jp-inverse-layout-color1);
 }
-[data-jp-theme-light='true'] .jp-RenderedImage img.jp-needs-dark-background {
+[data-jp-theme-light=true] .jp-RenderedImage img.jp-needs-dark-background {
   background-color: var(--jp-inverse-layout-color1);
 }
 /* ...or leave it untouched if they don't */
-[data-jp-theme-light='false'] .jp-RenderedImage img.jp-needs-dark-background {
+[data-jp-theme-light=false] .jp-RenderedImage img.jp-needs-dark-background {
 }
-[data-jp-theme-light='true'] .jp-RenderedImage img.jp-needs-light-background {
+[data-jp-theme-light=true] .jp-RenderedImage img.jp-needs-light-background {
 }
 
 .jp-RenderedHTMLCommon img,
@@ -14327,14 +14277,16 @@ a.anchor-link {
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><img src="images/DCF_compare1.png" style="width: 800px;"/>
-An illustrative example demonstrating the benefits of seeking cluster cores of the density. The black curve represents the underlying density and the grey histogram represents a sample from the density. Left: DPC incorrectly selects both centers from the first cluster, as the noise in the density estimate causes the peak-finding method to favor the high-density cluster. Right: Cluster cores, represented by dashed lines, better represent the cluster centers.</p>
+</p>
+<p>An illustrative example demonstrating the benefits of seeking cluster cores of the density. The black curve represents the underlying density and the grey histogram represents a sample from the density. Left: DPC incorrectly selects both centers from the first cluster, as the noise in the density estimate causes the peak-finding method to favor the high-density cluster. Right: Cluster cores, represented by dashed lines, better represent the cluster centers.</p>
 
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><img src="images/DCF_compare2.png" style="width: 750px;"/>
-Comparison of the DPC and DCF methods when applied to the Noisy Circles dataset. The Noisy Circles dataset contains two clusters, a high-density cluster (inner circle) and a low-density cluster (outer circle). The DPC method, as seen on the left of the figure, proceeds by searching for the points with maximal values of the peak-finding criterion. This method erroneously selects the multiple centers from the inner cluster. The allocation mechanism incorrectly assigns all points in the outer cluster. For this example, seven points in the inner cluster have larger value of the peak-finding criterion than the maximum value in the outer cluster.</p>
+</p>
+<p>Comparison of the DPC and DCF methods when applied to the Noisy Circles dataset. The Noisy Circles dataset contains two clusters, a high-density cluster (inner circle) and a low-density cluster (outer circle). The DPC method, as seen on the left of the figure, proceeds by searching for the points with maximal values of the peak-finding criterion. This method erroneously selects the multiple centers from the inner cluster. The allocation mechanism incorrectly assigns all points in the outer cluster. For this example, seven points in the inner cluster have larger value of the peak-finding criterion than the maximum value in the outer cluster.</p>
 <p>The DCF procedure can be seen on the right of the figure. We first select the instance of maximum density as the first peak. However, DCF proceeds to compute the cluster core associated with this point, the highlighted green points, and remove all elements of the core from consideration as centers. Of those remaining, the point with maximal value of the peak-finding criterion is in the outer cluster. The associated  cluster core is visible in yellow. As no edge in the $k$-NN graph exists between this cluster core and the first cluster core, it is accepted as a valid cluster core. The algorithm's termination procedure is invoked when assessing a third center. The third center is selected as before; however, as the cluster core associated with this point contains all of the instances in the dataset, the algorithm terminates.</p>
 
 </div>
