@@ -71,14 +71,15 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
  */
 
 /* use standard opaque scrollbars for most nodes */
-[data-jp-theme-scrollbars=true] {
+[data-jp-theme-scrollbars='true'] {
   scrollbar-color: rgb(var(--jp-scrollbar-thumb-color))
     var(--jp-scrollbar-background-color);
 }
 
 /* for code nodes, use a transparent style of scrollbar. These selectors
  * will match lower in the tree, and so will override the above */
-[data-jp-theme-scrollbars=true] .CodeMirror-hscrollbar, [data-jp-theme-scrollbars=true] .CodeMirror-vscrollbar {
+[data-jp-theme-scrollbars='true'] .CodeMirror-hscrollbar,
+[data-jp-theme-scrollbars='true'] .CodeMirror-vscrollbar {
   scrollbar-color: rgba(var(--jp-scrollbar-thumb-color), 0.5) transparent;
 }
 
@@ -88,25 +89,26 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 
 /* use standard opaque scrollbars for most nodes */
 
-[data-jp-theme-scrollbars=true] ::-webkit-scrollbar, [data-jp-theme-scrollbars=true] ::-webkit-scrollbar-corner {
+[data-jp-theme-scrollbars='true'] ::-webkit-scrollbar,
+[data-jp-theme-scrollbars='true'] ::-webkit-scrollbar-corner {
   background: var(--jp-scrollbar-background-color);
 }
 
-[data-jp-theme-scrollbars=true] ::-webkit-scrollbar-thumb {
+[data-jp-theme-scrollbars='true'] ::-webkit-scrollbar-thumb {
   background: rgb(var(--jp-scrollbar-thumb-color));
   border: var(--jp-scrollbar-thumb-margin) solid transparent;
   background-clip: content-box;
   border-radius: var(--jp-scrollbar-thumb-radius);
 }
 
-[data-jp-theme-scrollbars=true] ::-webkit-scrollbar-track:horizontal {
+[data-jp-theme-scrollbars='true'] ::-webkit-scrollbar-track:horizontal {
   border-left: var(--jp-scrollbar-endpad) solid
     var(--jp-scrollbar-background-color);
   border-right: var(--jp-scrollbar-endpad) solid
     var(--jp-scrollbar-background-color);
 }
 
-[data-jp-theme-scrollbars=true] ::-webkit-scrollbar-track:vertical {
+[data-jp-theme-scrollbars='true'] ::-webkit-scrollbar-track:vertical {
   border-top: var(--jp-scrollbar-endpad) solid
     var(--jp-scrollbar-background-color);
   border-bottom: var(--jp-scrollbar-endpad) solid
@@ -115,23 +117,33 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 
 /* for code nodes, use a transparent style of scrollbar */
 
-[data-jp-theme-scrollbars=true] .CodeMirror-hscrollbar::-webkit-scrollbar, [data-jp-theme-scrollbars=true] .CodeMirror-vscrollbar::-webkit-scrollbar, [data-jp-theme-scrollbars=true] .CodeMirror-hscrollbar::-webkit-scrollbar-corner, [data-jp-theme-scrollbars=true] .CodeMirror-vscrollbar::-webkit-scrollbar-corner {
+[data-jp-theme-scrollbars='true'] .CodeMirror-hscrollbar::-webkit-scrollbar,
+[data-jp-theme-scrollbars='true'] .CodeMirror-vscrollbar::-webkit-scrollbar,
+[data-jp-theme-scrollbars='true']
+  .CodeMirror-hscrollbar::-webkit-scrollbar-corner,
+[data-jp-theme-scrollbars='true']
+  .CodeMirror-vscrollbar::-webkit-scrollbar-corner {
   background-color: transparent;
 }
 
-[data-jp-theme-scrollbars=true] .CodeMirror-hscrollbar::-webkit-scrollbar-thumb, [data-jp-theme-scrollbars=true] .CodeMirror-vscrollbar::-webkit-scrollbar-thumb {
+[data-jp-theme-scrollbars='true']
+  .CodeMirror-hscrollbar::-webkit-scrollbar-thumb,
+[data-jp-theme-scrollbars='true']
+  .CodeMirror-vscrollbar::-webkit-scrollbar-thumb {
   background: rgba(var(--jp-scrollbar-thumb-color), 0.5);
   border: var(--jp-scrollbar-thumb-margin) solid transparent;
   background-clip: content-box;
   border-radius: var(--jp-scrollbar-thumb-radius);
 }
 
-[data-jp-theme-scrollbars=true] .CodeMirror-hscrollbar::-webkit-scrollbar-track:horizontal {
+[data-jp-theme-scrollbars='true']
+  .CodeMirror-hscrollbar::-webkit-scrollbar-track:horizontal {
   border-left: var(--jp-scrollbar-endpad) solid transparent;
   border-right: var(--jp-scrollbar-endpad) solid transparent;
 }
 
-[data-jp-theme-scrollbars=true] .CodeMirror-vscrollbar::-webkit-scrollbar-track:vertical {
+[data-jp-theme-scrollbars='true']
+  .CodeMirror-vscrollbar::-webkit-scrollbar-track:vertical {
   border-top: var(--jp-scrollbar-endpad) solid transparent;
   border-bottom: var(--jp-scrollbar-endpad) solid transparent;
 }
@@ -140,14 +152,14 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
  * Phosphor
  */
 
-.lm-ScrollBar[data-orientation=horizontal] {
+.lm-ScrollBar[data-orientation='horizontal'] {
   min-height: 16px;
   max-height: 16px;
   min-width: 45px;
   border-top: 1px solid #a0a0a0;
 }
 
-.lm-ScrollBar[data-orientation=vertical] {
+.lm-ScrollBar[data-orientation='vertical'] {
   min-width: 16px;
   max-width: 16px;
   min-height: 45px;
@@ -187,36 +199,40 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
   background: #a0a0a0;
 }
 
-.lm-ScrollBar[data-orientation=horizontal] .lm-ScrollBar-thumb {
+.lm-ScrollBar[data-orientation='horizontal'] .lm-ScrollBar-thumb {
   height: 100%;
   min-width: 15px;
   border-left: 1px solid #a0a0a0;
   border-right: 1px solid #a0a0a0;
 }
 
-.lm-ScrollBar[data-orientation=vertical] .lm-ScrollBar-thumb {
+.lm-ScrollBar[data-orientation='vertical'] .lm-ScrollBar-thumb {
   width: 100%;
   min-height: 15px;
   border-top: 1px solid #a0a0a0;
   border-bottom: 1px solid #a0a0a0;
 }
 
-.lm-ScrollBar[data-orientation=horizontal] .lm-ScrollBar-button[data-action=decrement] {
+.lm-ScrollBar[data-orientation='horizontal']
+  .lm-ScrollBar-button[data-action='decrement'] {
   background-image: var(--jp-icon-caret-left);
   background-size: 17px;
 }
 
-.lm-ScrollBar[data-orientation=horizontal] .lm-ScrollBar-button[data-action=increment] {
+.lm-ScrollBar[data-orientation='horizontal']
+  .lm-ScrollBar-button[data-action='increment'] {
   background-image: var(--jp-icon-caret-right);
   background-size: 17px;
 }
 
-.lm-ScrollBar[data-orientation=vertical] .lm-ScrollBar-button[data-action=decrement] {
+.lm-ScrollBar[data-orientation='vertical']
+  .lm-ScrollBar-button[data-action='decrement'] {
   background-image: var(--jp-icon-caret-up);
   background-size: 17px;
 }
 
-.lm-ScrollBar[data-orientation=vertical] .lm-ScrollBar-button[data-action=increment] {
+.lm-ScrollBar[data-orientation='vertical']
+  .lm-ScrollBar-button[data-action='increment'] {
   background-image: var(--jp-icon-caret-down);
   background-size: 17px;
 }
@@ -376,19 +392,25 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 
 
 /* <DEPRECATED> */
-.p-DockPanel-handle[data-orientation=horizontal], .lm-DockPanel-handle[data-orientation=horizontal] {
+.p-DockPanel-handle[data-orientation='horizontal'],
+/* </DEPRECATED> */
+.lm-DockPanel-handle[data-orientation='horizontal'] {
   cursor: ew-resize;
 }
 
 
 /* <DEPRECATED> */
-.p-DockPanel-handle[data-orientation=vertical], .lm-DockPanel-handle[data-orientation=vertical] {
+.p-DockPanel-handle[data-orientation='vertical'],
+/* </DEPRECATED> */
+.lm-DockPanel-handle[data-orientation='vertical'] {
   cursor: ns-resize;
 }
 
 
 /* <DEPRECATED> */
-.p-DockPanel-handle[data-orientation=horizontal]:after, .lm-DockPanel-handle[data-orientation=horizontal]:after {
+.p-DockPanel-handle[data-orientation='horizontal']:after,
+/* </DEPRECATED> */
+.lm-DockPanel-handle[data-orientation='horizontal']:after {
   left: 50%;
   min-width: 8px;
   transform: translateX(-50%);
@@ -396,7 +418,9 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 
 
 /* <DEPRECATED> */
-.p-DockPanel-handle[data-orientation=vertical]:after, .lm-DockPanel-handle[data-orientation=vertical]:after {
+.p-DockPanel-handle[data-orientation='vertical']:after,
+/* </DEPRECATED> */
+.lm-DockPanel-handle[data-orientation='vertical']:after {
   top: 50%;
   min-height: 8px;
   transform: translateY(-50%);
@@ -556,13 +580,17 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 
 
 /* <DEPRECATED> */
-.p-ScrollBar[data-orientation=horizontal], .lm-ScrollBar[data-orientation=horizontal] {
+.p-ScrollBar[data-orientation='horizontal'],
+/* </DEPRECATED> */
+.lm-ScrollBar[data-orientation='horizontal'] {
   flex-direction: row;
 }
 
 
 /* <DEPRECATED> */
-.p-ScrollBar[data-orientation=vertical], .lm-ScrollBar[data-orientation=vertical] {
+.p-ScrollBar[data-orientation='vertical'],
+/* </DEPRECATED> */
+.lm-ScrollBar[data-orientation='vertical'] {
   flex-direction: column;
 }
 
@@ -629,19 +657,25 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 
 
 /* <DEPRECATED> */
-.p-SplitPanel[data-orientation=horizontal] > .p-SplitPanel-handle, .lm-SplitPanel[data-orientation=horizontal] > .lm-SplitPanel-handle {
+.p-SplitPanel[data-orientation='horizontal'] > .p-SplitPanel-handle,
+/* </DEPRECATED> */
+.lm-SplitPanel[data-orientation='horizontal'] > .lm-SplitPanel-handle {
   cursor: ew-resize;
 }
 
 
 /* <DEPRECATED> */
-.p-SplitPanel[data-orientation=vertical] > .p-SplitPanel-handle, .lm-SplitPanel[data-orientation=vertical] > .lm-SplitPanel-handle {
+.p-SplitPanel[data-orientation='vertical'] > .p-SplitPanel-handle,
+/* </DEPRECATED> */
+.lm-SplitPanel[data-orientation='vertical'] > .lm-SplitPanel-handle {
   cursor: ns-resize;
 }
 
 
 /* <DEPRECATED> */
-.p-SplitPanel[data-orientation=horizontal] > .p-SplitPanel-handle:after, .lm-SplitPanel[data-orientation=horizontal] > .lm-SplitPanel-handle:after {
+.p-SplitPanel[data-orientation='horizontal'] > .p-SplitPanel-handle:after,
+/* </DEPRECATED> */
+.lm-SplitPanel[data-orientation='horizontal'] > .lm-SplitPanel-handle:after {
   left: 50%;
   min-width: 8px;
   transform: translateX(-50%);
@@ -649,7 +683,9 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 
 
 /* <DEPRECATED> */
-.p-SplitPanel[data-orientation=vertical] > .p-SplitPanel-handle:after, .lm-SplitPanel[data-orientation=vertical] > .lm-SplitPanel-handle:after {
+.p-SplitPanel[data-orientation='vertical'] > .p-SplitPanel-handle:after,
+/* </DEPRECATED> */
+.lm-SplitPanel[data-orientation='vertical'] > .lm-SplitPanel-handle:after {
   top: 50%;
   min-height: 8px;
   transform: translateY(-50%);
@@ -675,12 +711,14 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 }
 
 
-/* <DEPRECATED> */ .p-TabBar[data-orientation=horizontal], .lm-TabBar[data-orientation=horizontal] {
+/* <DEPRECATED> */ .p-TabBar[data-orientation='horizontal'], /* </DEPRECATED> */
+.lm-TabBar[data-orientation='horizontal'] {
   flex-direction: row;
 }
 
 
-/* <DEPRECATED> */ .p-TabBar[data-orientation=vertical], .lm-TabBar[data-orientation=vertical] {
+/* <DEPRECATED> */ .p-TabBar[data-orientation='vertical'], /* </DEPRECATED> */
+.lm-TabBar[data-orientation='vertical'] {
   flex-direction: column;
 }
 
@@ -696,13 +734,17 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 
 
 /* <DEPRECATED> */
-.p-TabBar[data-orientation=horizontal] > .p-TabBar-content, .lm-TabBar[data-orientation=horizontal] > .lm-TabBar-content {
+.p-TabBar[data-orientation='horizontal'] > .p-TabBar-content,
+/* </DEPRECATED> */
+.lm-TabBar[data-orientation='horizontal'] > .lm-TabBar-content {
   flex-direction: row;
 }
 
 
 /* <DEPRECATED> */
-.p-TabBar[data-orientation=vertical] > .p-TabBar-content, .lm-TabBar[data-orientation=vertical] > .lm-TabBar-content {
+.p-TabBar[data-orientation='vertical'] > .p-TabBar-content,
+/* </DEPRECATED> */
+.lm-TabBar[data-orientation='vertical'] > .lm-TabBar-content {
   flex-direction: column;
 }
 
@@ -747,14 +789,18 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 
 
 /* <DEPRECATED> */
-.p-TabBar.p-mod-dragging[data-orientation=horizontal] .p-TabBar-tab, .lm-TabBar.lm-mod-dragging[data-orientation=horizontal] .lm-TabBar-tab {
+.p-TabBar.p-mod-dragging[data-orientation='horizontal'] .p-TabBar-tab,
+/* </DEPRECATED> */
+.lm-TabBar.lm-mod-dragging[data-orientation='horizontal'] .lm-TabBar-tab {
   left: 0;
   transition: left 150ms ease;
 }
 
 
 /* <DEPRECATED> */
-.p-TabBar.p-mod-dragging[data-orientation=vertical] .p-TabBar-tab, .lm-TabBar.lm-mod-dragging[data-orientation=vertical] .lm-TabBar-tab {
+.p-TabBar.p-mod-dragging[data-orientation='vertical'] .p-TabBar-tab,
+/* </DEPRECATED> */
+.lm-TabBar.lm-mod-dragging[data-orientation='vertical'] .lm-TabBar-tab {
   top: 0;
   transition: top 150ms ease;
 }
@@ -2132,7 +2178,7 @@ a.bp3-button{
     transition:-webkit-transform 200ms cubic-bezier(0.4, 1, 0.75, 0.9);
     transition:transform 200ms cubic-bezier(0.4, 1, 0.75, 0.9);
     transition:transform 200ms cubic-bezier(0.4, 1, 0.75, 0.9), -webkit-transform 200ms cubic-bezier(0.4, 1, 0.75, 0.9); }
-    .bp3-collapse .bp3-collapse-body[aria-hidden=true]{
+    .bp3-collapse .bp3-collapse-body[aria-hidden="true"]{
       display:none; }
 
 .bp3-context-menu .bp3-popover-target{
@@ -3338,7 +3384,7 @@ a.bp3-button{
   .bp3-file-upload-input:focus, .bp3-file-upload-input.bp3-active{
     -webkit-box-shadow:0 0 0 1px #137cbd, 0 0 0 3px rgba(19, 124, 189, 0.3), inset 0 1px 1px rgba(16, 22, 26, 0.2);
             box-shadow:0 0 0 1px #137cbd, 0 0 0 3px rgba(19, 124, 189, 0.3), inset 0 1px 1px rgba(16, 22, 26, 0.2); }
-  .bp3-file-upload-input[type=search], .bp3-file-upload-input.bp3-round{
+  .bp3-file-upload-input[type="search"], .bp3-file-upload-input.bp3-round{
     border-radius:30px;
     -webkit-box-sizing:border-box;
             box-sizing:border-box;
@@ -3410,7 +3456,7 @@ a.bp3-button{
     line-height:40px;
     font-size:16px;
     padding-right:95px; }
-    .bp3-large .bp3-file-upload-input[type=search], .bp3-large .bp3-file-upload-input.bp3-round{
+    .bp3-large .bp3-file-upload-input[type="search"], .bp3-large .bp3-file-upload-input.bp3-round{
       padding:0 15px; }
     .bp3-large .bp3-file-upload-input::after{
       min-width:30px;
@@ -3624,7 +3670,7 @@ a.bp3-button{
     height:40px;
     line-height:40px;
     font-size:16px; }
-    .bp3-input-group.bp3-large .bp3-input[type=search], .bp3-input-group.bp3-large .bp3-input.bp3-round{
+    .bp3-input-group.bp3-large .bp3-input[type="search"], .bp3-input-group.bp3-large .bp3-input.bp3-round{
       padding:0 15px; }
     .bp3-input-group.bp3-large .bp3-input:not(:first-child){
       padding-left:40px; }
@@ -3647,7 +3693,7 @@ a.bp3-button{
     padding-left:8px;
     line-height:24px;
     font-size:12px; }
-    .bp3-input-group.bp3-small .bp3-input[type=search], .bp3-input-group.bp3-small .bp3-input.bp3-round{
+    .bp3-input-group.bp3-small .bp3-input[type="search"], .bp3-input-group.bp3-small .bp3-input.bp3-round{
       padding:0 12px; }
     .bp3-input-group.bp3-small .bp3-input:not(:first-child){
       padding-left:24px; }
@@ -3769,7 +3815,7 @@ a.bp3-button{
   .bp3-input:focus, .bp3-input.bp3-active{
     -webkit-box-shadow:0 0 0 1px #137cbd, 0 0 0 3px rgba(19, 124, 189, 0.3), inset 0 1px 1px rgba(16, 22, 26, 0.2);
             box-shadow:0 0 0 1px #137cbd, 0 0 0 3px rgba(19, 124, 189, 0.3), inset 0 1px 1px rgba(16, 22, 26, 0.2); }
-  .bp3-input[type=search], .bp3-input.bp3-round{
+  .bp3-input[type="search"], .bp3-input.bp3-round{
     border-radius:30px;
     -webkit-box-sizing:border-box;
             box-sizing:border-box;
@@ -3788,7 +3834,7 @@ a.bp3-button{
     height:40px;
     line-height:40px;
     font-size:16px; }
-    .bp3-input.bp3-large[type=search], .bp3-input.bp3-large.bp3-round{
+    .bp3-input.bp3-large[type="search"], .bp3-input.bp3-large.bp3-round{
       padding:0 15px; }
   .bp3-input.bp3-small{
     height:24px;
@@ -3796,7 +3842,7 @@ a.bp3-button{
     padding-left:8px;
     line-height:24px;
     font-size:12px; }
-    .bp3-input.bp3-small[type=search], .bp3-input.bp3-small.bp3-round{
+    .bp3-input.bp3-small[type="search"], .bp3-input.bp3-small.bp3-round{
       padding:0 12px; }
   .bp3-input.bp3-fill{
     -webkit-box-flex:1;
@@ -4492,7 +4538,7 @@ form{
   font-style:normal;
   -moz-osx-font-smoothing:grayscale;
   -webkit-font-smoothing:antialiased;
-  content:"î›†"; }
+  content:""; }
 .bp3-running-text table, table.bp3-html-table{
   border-spacing:0;
   font-size:14px; }
@@ -4717,1456 +4763,1456 @@ span.bp3-icon:empty{
     -webkit-font-smoothing:antialiased; }
 
 .bp3-icon-add::before{
-  content:"î˜¾"; }
+  content:""; }
 
 .bp3-icon-add-column-left::before{
-  content:"î›¹"; }
+  content:""; }
 
 .bp3-icon-add-column-right::before{
-  content:"î›º"; }
+  content:""; }
 
 .bp3-icon-add-row-bottom::before{
-  content:"î›¸"; }
+  content:""; }
 
 .bp3-icon-add-row-top::before{
-  content:"î›·"; }
+  content:""; }
 
 .bp3-icon-add-to-artifact::before{
-  content:"î™¼"; }
+  content:""; }
 
 .bp3-icon-add-to-folder::before{
-  content:"î›’"; }
+  content:""; }
 
 .bp3-icon-airplane::before{
-  content:"î‹"; }
+  content:""; }
 
 .bp3-icon-align-center::before{
-  content:"î˜ƒ"; }
+  content:""; }
 
 .bp3-icon-align-justify::before{
-  content:"î˜…"; }
+  content:""; }
 
 .bp3-icon-align-left::before{
-  content:"î˜‚"; }
+  content:""; }
 
 .bp3-icon-align-right::before{
-  content:"î˜„"; }
+  content:""; }
 
 .bp3-icon-alignment-bottom::before{
-  content:"îœ§"; }
+  content:""; }
 
 .bp3-icon-alignment-horizontal-center::before{
-  content:"îœ¦"; }
+  content:""; }
 
 .bp3-icon-alignment-left::before{
-  content:"îœ¢"; }
+  content:""; }
 
 .bp3-icon-alignment-right::before{
-  content:"îœ¤"; }
+  content:""; }
 
 .bp3-icon-alignment-top::before{
-  content:"îœ¥"; }
+  content:""; }
 
 .bp3-icon-alignment-vertical-center::before{
-  content:"îœ£"; }
+  content:""; }
 
 .bp3-icon-annotation::before{
-  content:"î›°"; }
+  content:""; }
 
 .bp3-icon-application::before{
-  content:"îœµ"; }
+  content:""; }
 
 .bp3-icon-applications::before{
-  content:"î˜¡"; }
+  content:""; }
 
 .bp3-icon-archive::before{
-  content:"î¤‡"; }
+  content:""; }
 
 .bp3-icon-arrow-bottom-left::before{
-  content:"â†™"; }
+  content:"↙"; }
 
 .bp3-icon-arrow-bottom-right::before{
-  content:"â†˜"; }
+  content:"↘"; }
 
 .bp3-icon-arrow-down::before{
-  content:"â†“"; }
+  content:"↓"; }
 
 .bp3-icon-arrow-left::before{
-  content:"â†"; }
+  content:"←"; }
 
 .bp3-icon-arrow-right::before{
-  content:"â†’"; }
+  content:"→"; }
 
 .bp3-icon-arrow-top-left::before{
-  content:"â†–"; }
+  content:"↖"; }
 
 .bp3-icon-arrow-top-right::before{
-  content:"â†—"; }
+  content:"↗"; }
 
 .bp3-icon-arrow-up::before{
-  content:"â†‘"; }
+  content:"↑"; }
 
 .bp3-icon-arrows-horizontal::before{
-  content:"â†”"; }
+  content:"↔"; }
 
 .bp3-icon-arrows-vertical::before{
-  content:"â†•"; }
+  content:"↕"; }
 
 .bp3-icon-asterisk::before{
   content:"*"; }
 
 .bp3-icon-automatic-updates::before{
-  content:"î™Ÿ"; }
+  content:""; }
 
 .bp3-icon-badge::before{
-  content:"î›£"; }
+  content:""; }
 
 .bp3-icon-ban-circle::before{
-  content:"îš"; }
+  content:""; }
 
 .bp3-icon-bank-account::before{
-  content:"î¯"; }
+  content:""; }
 
 .bp3-icon-barcode::before{
-  content:"î™¶"; }
+  content:""; }
 
 .bp3-icon-blank::before{
-  content:"î¤€"; }
+  content:""; }
 
 .bp3-icon-blocked-person::before{
-  content:"î¨"; }
+  content:""; }
 
 .bp3-icon-bold::before{
-  content:"î˜†"; }
+  content:""; }
 
 .bp3-icon-book::before{
-  content:"îš¸"; }
+  content:""; }
 
 .bp3-icon-bookmark::before{
-  content:"î˜š"; }
+  content:""; }
 
 .bp3-icon-box::before{
-  content:"îš¿"; }
+  content:""; }
 
 .bp3-icon-briefcase::before{
-  content:"î™´"; }
+  content:""; }
 
 .bp3-icon-bring-data::before{
-  content:"î¤Š"; }
+  content:""; }
 
 .bp3-icon-build::before{
-  content:"îœ­"; }
+  content:""; }
 
 .bp3-icon-calculator::before{
-  content:"îœ‹"; }
+  content:""; }
 
 .bp3-icon-calendar::before{
-  content:"î˜«"; }
+  content:""; }
 
 .bp3-icon-camera::before{
-  content:"îšž"; }
+  content:""; }
 
 .bp3-icon-caret-down::before{
-  content:"âŒ„"; }
+  content:"⌄"; }
 
 .bp3-icon-caret-left::before{
-  content:"âŒ©"; }
+  content:"〈"; }
 
 .bp3-icon-caret-right::before{
-  content:"âŒª"; }
+  content:"〉"; }
 
 .bp3-icon-caret-up::before{
-  content:"âŒƒ"; }
+  content:"⌃"; }
 
 .bp3-icon-cell-tower::before{
-  content:"î°"; }
+  content:""; }
 
 .bp3-icon-changes::before{
-  content:"î˜£"; }
+  content:""; }
 
 .bp3-icon-chart::before{
-  content:"î™¾"; }
+  content:""; }
 
 .bp3-icon-chat::before{
-  content:"îš‰"; }
+  content:""; }
 
 .bp3-icon-chevron-backward::before{
-  content:"î›Ÿ"; }
+  content:""; }
 
 .bp3-icon-chevron-down::before{
-  content:"îš—"; }
+  content:""; }
 
 .bp3-icon-chevron-forward::before{
-  content:"î› "; }
+  content:""; }
 
 .bp3-icon-chevron-left::before{
-  content:"îš”"; }
+  content:""; }
 
 .bp3-icon-chevron-right::before{
-  content:"îš•"; }
+  content:""; }
 
 .bp3-icon-chevron-up::before{
-  content:"îš–"; }
+  content:""; }
 
 .bp3-icon-circle::before{
-  content:"î™ª"; }
+  content:""; }
 
 .bp3-icon-circle-arrow-down::before{
-  content:"îšŽ"; }
+  content:""; }
 
 .bp3-icon-circle-arrow-left::before{
-  content:"îšŒ"; }
+  content:""; }
 
 .bp3-icon-circle-arrow-right::before{
-  content:"îš‹"; }
+  content:""; }
 
 .bp3-icon-circle-arrow-up::before{
-  content:"îš"; }
+  content:""; }
 
 .bp3-icon-citation::before{
-  content:"î˜›"; }
+  content:""; }
 
 .bp3-icon-clean::before{
-  content:"îŸ…"; }
+  content:""; }
 
 .bp3-icon-clipboard::before{
-  content:"î˜"; }
+  content:""; }
 
 .bp3-icon-cloud::before{
-  content:"â˜"; }
+  content:"☁"; }
 
 .bp3-icon-cloud-download::before{
-  content:"îš"; }
+  content:""; }
 
 .bp3-icon-cloud-upload::before{
-  content:"îš‘"; }
+  content:""; }
 
 .bp3-icon-code::before{
-  content:"î™¡"; }
+  content:""; }
 
 .bp3-icon-code-block::before{
-  content:"î›…"; }
+  content:""; }
 
 .bp3-icon-cog::before{
-  content:"î™…"; }
+  content:""; }
 
 .bp3-icon-collapse-all::before{
-  content:"î£"; }
+  content:""; }
 
 .bp3-icon-column-layout::before{
-  content:"î›š"; }
+  content:""; }
 
 .bp3-icon-comment::before{
-  content:"îšŠ"; }
+  content:""; }
 
 .bp3-icon-comparison::before{
-  content:"î˜·"; }
+  content:""; }
 
 .bp3-icon-compass::before{
-  content:"îžœ"; }
+  content:""; }
 
 .bp3-icon-compressed::before{
-  content:"î›€"; }
+  content:""; }
 
 .bp3-icon-confirm::before{
-  content:"î˜¹"; }
+  content:""; }
 
 .bp3-icon-console::before{
-  content:"îž›"; }
+  content:""; }
 
 .bp3-icon-contrast::before{
-  content:"î›‹"; }
+  content:""; }
 
 .bp3-icon-control::before{
-  content:"î™¿"; }
+  content:""; }
 
 .bp3-icon-credit-card::before{
-  content:"î™‰"; }
+  content:""; }
 
 .bp3-icon-cross::before{
-  content:"âœ—"; }
+  content:"✗"; }
 
 .bp3-icon-crown::before{
-  content:"îž´"; }
+  content:""; }
 
 .bp3-icon-cube::before{
-  content:"îŸˆ"; }
+  content:""; }
 
 .bp3-icon-cube-add::before{
-  content:"îŸ‰"; }
+  content:""; }
 
 .bp3-icon-cube-remove::before{
-  content:"îŸ"; }
+  content:""; }
 
 .bp3-icon-curved-range-chart::before{
-  content:"îœ›"; }
+  content:""; }
 
 .bp3-icon-cut::before{
-  content:"î›¯"; }
+  content:""; }
 
 .bp3-icon-dashboard::before{
-  content:"î‘"; }
+  content:""; }
 
 .bp3-icon-data-lineage::before{
-  content:"î¤ˆ"; }
+  content:""; }
 
 .bp3-icon-database::before{
-  content:"îšƒ"; }
+  content:""; }
 
 .bp3-icon-delete::before{
-  content:"î™„"; }
+  content:""; }
 
 .bp3-icon-delta::before{
-  content:"Î”"; }
+  content:"Δ"; }
 
 .bp3-icon-derive-column::before{
-  content:"îœ¹"; }
+  content:""; }
 
 .bp3-icon-desktop::before{
-  content:"îš¯"; }
+  content:""; }
 
 .bp3-icon-diagram-tree::before{
-  content:"îž³"; }
+  content:""; }
 
 .bp3-icon-direction-left::before{
-  content:"îš"; }
+  content:""; }
 
 .bp3-icon-direction-right::before{
-  content:"îš‚"; }
+  content:""; }
 
 .bp3-icon-disable::before{
-  content:"î˜€"; }
+  content:""; }
 
 .bp3-icon-document::before{
-  content:"î˜°"; }
+  content:""; }
 
 .bp3-icon-document-open::before{
-  content:"îœž"; }
+  content:""; }
 
 .bp3-icon-document-share::before{
-  content:"îœŸ"; }
+  content:""; }
 
 .bp3-icon-dollar::before{
   content:"$"; }
 
 .bp3-icon-dot::before{
-  content:"â€¢"; }
+  content:"•"; }
 
 .bp3-icon-double-caret-horizontal::before{
-  content:"î›‡"; }
+  content:""; }
 
 .bp3-icon-double-caret-vertical::before{
-  content:"î›†"; }
+  content:""; }
 
 .bp3-icon-double-chevron-down::before{
-  content:"îœƒ"; }
+  content:""; }
 
 .bp3-icon-double-chevron-left::before{
-  content:"î›¿"; }
+  content:""; }
 
 .bp3-icon-double-chevron-right::before{
-  content:"îœ"; }
+  content:""; }
 
 .bp3-icon-double-chevron-up::before{
-  content:"îœ‚"; }
+  content:""; }
 
 .bp3-icon-doughnut-chart::before{
-  content:"î›Ž"; }
+  content:""; }
 
 .bp3-icon-download::before{
-  content:"î˜¯"; }
+  content:""; }
 
 .bp3-icon-drag-handle-horizontal::before{
-  content:"îœ–"; }
+  content:""; }
 
 .bp3-icon-drag-handle-vertical::before{
-  content:"îœ•"; }
+  content:""; }
 
 .bp3-icon-draw::before{
-  content:"î™«"; }
+  content:""; }
 
 .bp3-icon-drive-time::before{
-  content:"î˜•"; }
+  content:""; }
 
 .bp3-icon-duplicate::before{
-  content:"îšœ"; }
+  content:""; }
 
 .bp3-icon-edit::before{
-  content:"âœŽ"; }
+  content:"✎"; }
 
 .bp3-icon-eject::before{
-  content:"â"; }
+  content:"⏏"; }
 
 .bp3-icon-endorsed::before{
-  content:"îŸ"; }
+  content:""; }
 
 .bp3-icon-envelope::before{
-  content:"âœ‰"; }
+  content:"✉"; }
 
 .bp3-icon-equals::before{
-  content:"îŸ™"; }
+  content:""; }
 
 .bp3-icon-eraser::before{
-  content:"î³"; }
+  content:""; }
 
 .bp3-icon-error::before{
-  content:"î™ˆ"; }
+  content:""; }
 
 .bp3-icon-euro::before{
-  content:"â‚¬"; }
+  content:"€"; }
 
 .bp3-icon-exchange::before{
-  content:"î˜¶"; }
+  content:""; }
 
 .bp3-icon-exclude-row::before{
-  content:"î›ª"; }
+  content:""; }
 
 .bp3-icon-expand-all::before{
-  content:"î¤"; }
+  content:""; }
 
 .bp3-icon-export::before{
-  content:"î˜³"; }
+  content:""; }
 
 .bp3-icon-eye-off::before{
-  content:"î›Œ"; }
+  content:""; }
 
 .bp3-icon-eye-on::before{
-  content:"îš"; }
+  content:""; }
 
 .bp3-icon-eye-open::before{
-  content:"î™¯"; }
+  content:""; }
 
 .bp3-icon-fast-backward::before{
-  content:"îš¨"; }
+  content:""; }
 
 .bp3-icon-fast-forward::before{
-  content:"îš¬"; }
+  content:""; }
 
 .bp3-icon-feed::before{
-  content:"î™–"; }
+  content:""; }
 
 .bp3-icon-feed-subscribed::before{
-  content:"îž"; }
+  content:""; }
 
 .bp3-icon-film::before{
-  content:"îš¡"; }
+  content:""; }
 
 .bp3-icon-filter::before{
-  content:"î˜¸"; }
+  content:""; }
 
 .bp3-icon-filter-keep::before{
-  content:"îžŒ"; }
+  content:""; }
 
 .bp3-icon-filter-list::before{
-  content:"î›®"; }
+  content:""; }
 
 .bp3-icon-filter-open::before{
-  content:"îŸ—"; }
+  content:""; }
 
 .bp3-icon-filter-remove::before{
-  content:"îž"; }
+  content:""; }
 
 .bp3-icon-flag::before{
-  content:"âš‘"; }
+  content:"⚑"; }
 
 .bp3-icon-flame::before{
-  content:"îž©"; }
+  content:""; }
 
 .bp3-icon-flash::before{
-  content:"îš³"; }
+  content:""; }
 
 .bp3-icon-floppy-disk::before{
-  content:"îš·"; }
+  content:""; }
 
 .bp3-icon-flow-branch::before{
-  content:"îŸ"; }
+  content:""; }
 
 .bp3-icon-flow-end::before{
-  content:"îŸ„"; }
+  content:""; }
 
 .bp3-icon-flow-linear::before{
-  content:"îŸ€"; }
+  content:""; }
 
 .bp3-icon-flow-review::before{
-  content:"îŸ‚"; }
+  content:""; }
 
 .bp3-icon-flow-review-branch::before{
-  content:"îŸƒ"; }
+  content:""; }
 
 .bp3-icon-flows::before{
-  content:"î™™"; }
+  content:""; }
 
 .bp3-icon-folder-close::before{
-  content:"î™’"; }
+  content:""; }
 
 .bp3-icon-folder-new::before{
-  content:"îž°"; }
+  content:""; }
 
 .bp3-icon-folder-open::before{
-  content:"î™‘"; }
+  content:""; }
 
 .bp3-icon-folder-shared::before{
-  content:"î™“"; }
+  content:""; }
 
 .bp3-icon-folder-shared-open::before{
-  content:"î™°"; }
+  content:""; }
 
 .bp3-icon-follower::before{
-  content:"î "; }
+  content:""; }
 
 .bp3-icon-following::before{
-  content:"î¡"; }
+  content:""; }
 
 .bp3-icon-font::before{
-  content:"îš´"; }
+  content:""; }
 
 .bp3-icon-fork::before{
-  content:"î˜º"; }
+  content:""; }
 
 .bp3-icon-form::before{
-  content:"îž•"; }
+  content:""; }
 
 .bp3-icon-full-circle::before{
-  content:"îš…"; }
+  content:""; }
 
 .bp3-icon-full-stacked-chart::before{
-  content:"îž"; }
+  content:""; }
 
 .bp3-icon-fullscreen::before{
-  content:"îš™"; }
+  content:""; }
 
 .bp3-icon-function::before{
-  content:"î›¥"; }
+  content:""; }
 
 .bp3-icon-gantt-chart::before{
-  content:"î›´"; }
+  content:""; }
 
 .bp3-icon-geolocation::before{
-  content:"î™€"; }
+  content:""; }
 
 .bp3-icon-geosearch::before{
-  content:"î˜“"; }
+  content:""; }
 
 .bp3-icon-git-branch::before{
-  content:"îœª"; }
+  content:""; }
 
 .bp3-icon-git-commit::before{
-  content:"îœ«"; }
+  content:""; }
 
 .bp3-icon-git-merge::before{
-  content:"îœ©"; }
+  content:""; }
 
 .bp3-icon-git-new-branch::before{
-  content:"î‰"; }
+  content:""; }
 
 .bp3-icon-git-pull::before{
-  content:"îœ¨"; }
+  content:""; }
 
 .bp3-icon-git-push::before{
-  content:"îœ¬"; }
+  content:""; }
 
 .bp3-icon-git-repo::before{
-  content:"îˆ"; }
+  content:""; }
 
 .bp3-icon-glass::before{
-  content:"îš±"; }
+  content:""; }
 
 .bp3-icon-globe::before{
-  content:"î™¦"; }
+  content:""; }
 
 .bp3-icon-globe-network::before{
-  content:"îžµ"; }
+  content:""; }
 
 .bp3-icon-graph::before{
-  content:"î™³"; }
+  content:""; }
 
 .bp3-icon-graph-remove::before{
-  content:"î˜‰"; }
+  content:""; }
 
 .bp3-icon-greater-than::before{
-  content:"îŸ¡"; }
+  content:""; }
 
 .bp3-icon-greater-than-or-equal-to::before{
-  content:"îŸ¢"; }
+  content:""; }
 
 .bp3-icon-grid::before{
-  content:"î›"; }
+  content:""; }
 
 .bp3-icon-grid-view::before{
-  content:"î›¤"; }
+  content:""; }
 
 .bp3-icon-group-objects::before{
-  content:"î˜Š"; }
+  content:""; }
 
 .bp3-icon-grouped-bar-chart::before{
-  content:"î"; }
+  content:""; }
 
 .bp3-icon-hand::before{
-  content:"î›ž"; }
+  content:""; }
 
 .bp3-icon-hand-down::before{
-  content:"îš»"; }
+  content:""; }
 
 .bp3-icon-hand-left::before{
-  content:"îš¼"; }
+  content:""; }
 
 .bp3-icon-hand-right::before{
-  content:"îš¹"; }
+  content:""; }
 
 .bp3-icon-hand-up::before{
-  content:"îšº"; }
+  content:""; }
 
 .bp3-icon-header::before{
-  content:"îšµ"; }
+  content:""; }
 
 .bp3-icon-header-one::before{
-  content:"îž“"; }
+  content:""; }
 
 .bp3-icon-header-two::before{
-  content:"îž”"; }
+  content:""; }
 
 .bp3-icon-headset::before{
-  content:"î›œ"; }
+  content:""; }
 
 .bp3-icon-heart::before{
-  content:"â™¥"; }
+  content:"♥"; }
 
 .bp3-icon-heart-broken::before{
-  content:"îž¢"; }
+  content:""; }
 
 .bp3-icon-heat-grid::before{
-  content:"î›³"; }
+  content:""; }
 
 .bp3-icon-heatmap::before{
-  content:"î˜”"; }
+  content:""; }
 
 .bp3-icon-help::before{
   content:"?"; }
 
 .bp3-icon-helper-management::before{
-  content:"î™­"; }
+  content:""; }
 
 .bp3-icon-highlight::before{
-  content:"î›­"; }
+  content:""; }
 
 .bp3-icon-history::before{
-  content:"î™Š"; }
+  content:""; }
 
 .bp3-icon-home::before{
-  content:"âŒ‚"; }
+  content:"⌂"; }
 
 .bp3-icon-horizontal-bar-chart::before{
-  content:"îœŒ"; }
+  content:""; }
 
 .bp3-icon-horizontal-bar-chart-asc::before{
-  content:"îœ"; }
+  content:""; }
 
 .bp3-icon-horizontal-bar-chart-desc::before{
-  content:"îœ"; }
+  content:""; }
 
 .bp3-icon-horizontal-distribution::before{
-  content:"îœ "; }
+  content:""; }
 
 .bp3-icon-id-number::before{
-  content:"î±"; }
+  content:""; }
 
 .bp3-icon-image-rotate-left::before{
-  content:"îœº"; }
+  content:""; }
 
 .bp3-icon-image-rotate-right::before{
-  content:"îœ»"; }
+  content:""; }
 
 .bp3-icon-import::before{
-  content:"î˜²"; }
+  content:""; }
 
 .bp3-icon-inbox::before{
-  content:"î˜©"; }
+  content:""; }
 
 .bp3-icon-inbox-filtered::before{
-  content:"îŸ‘"; }
+  content:""; }
 
 .bp3-icon-inbox-geo::before{
-  content:"îŸ’"; }
+  content:""; }
 
 .bp3-icon-inbox-search::before{
-  content:"îŸ“"; }
+  content:""; }
 
 .bp3-icon-inbox-update::before{
-  content:"îŸ”"; }
+  content:""; }
 
 .bp3-icon-info-sign::before{
-  content:"â„¹"; }
+  content:"ℹ"; }
 
 .bp3-icon-inheritance::before{
-  content:"îŸ•"; }
+  content:""; }
 
 .bp3-icon-inner-join::before{
-  content:"îž£"; }
+  content:""; }
 
 .bp3-icon-insert::before{
-  content:"î™¬"; }
+  content:""; }
 
 .bp3-icon-intersection::before{
-  content:"î¥"; }
+  content:""; }
 
 .bp3-icon-ip-address::before{
-  content:"î²"; }
+  content:""; }
 
 .bp3-icon-issue::before{
-  content:"î´"; }
+  content:""; }
 
 .bp3-icon-issue-closed::before{
-  content:"î¶"; }
+  content:""; }
 
 .bp3-icon-issue-new::before{
-  content:"îµ"; }
+  content:""; }
 
 .bp3-icon-italic::before{
-  content:"î˜‡"; }
+  content:""; }
 
 .bp3-icon-join-table::before{
-  content:"îœ¸"; }
+  content:""; }
 
 .bp3-icon-key::before{
-  content:"îžŽ"; }
+  content:""; }
 
 .bp3-icon-key-backspace::before{
-  content:"îœ‡"; }
+  content:""; }
 
 .bp3-icon-key-command::before{
-  content:"îœ…"; }
+  content:""; }
 
 .bp3-icon-key-control::before{
-  content:"îœ„"; }
+  content:""; }
 
 .bp3-icon-key-delete::before{
-  content:"îœˆ"; }
+  content:""; }
 
 .bp3-icon-key-enter::before{
-  content:"îœŠ"; }
+  content:""; }
 
 .bp3-icon-key-escape::before{
-  content:"îœ‰"; }
+  content:""; }
 
 .bp3-icon-key-option::before{
-  content:"î‚"; }
+  content:""; }
 
 .bp3-icon-key-shift::before{
-  content:"îœ†"; }
+  content:""; }
 
 .bp3-icon-key-tab::before{
-  content:"î—"; }
+  content:""; }
 
 .bp3-icon-known-vehicle::before{
-  content:"îœ¼"; }
+  content:""; }
 
 .bp3-icon-label::before{
-  content:"î™¥"; }
+  content:""; }
 
 .bp3-icon-layer::before{
-  content:"î›"; }
+  content:""; }
 
 .bp3-icon-layers::before{
-  content:"î˜˜"; }
+  content:""; }
 
 .bp3-icon-layout::before{
-  content:"î˜Œ"; }
+  content:""; }
 
 .bp3-icon-layout-auto::before{
-  content:"î˜"; }
+  content:""; }
 
 .bp3-icon-layout-balloon::before{
-  content:"î›“"; }
+  content:""; }
 
 .bp3-icon-layout-circle::before{
-  content:"î˜Ž"; }
+  content:""; }
 
 .bp3-icon-layout-grid::before{
-  content:"î˜"; }
+  content:""; }
 
 .bp3-icon-layout-group-by::before{
-  content:"î˜‘"; }
+  content:""; }
 
 .bp3-icon-layout-hierarchy::before{
-  content:"î˜"; }
+  content:""; }
 
 .bp3-icon-layout-linear::before{
-  content:"î›ƒ"; }
+  content:""; }
 
 .bp3-icon-layout-skew-grid::before{
-  content:"î˜’"; }
+  content:""; }
 
 .bp3-icon-layout-sorted-clusters::before{
-  content:"î›”"; }
+  content:""; }
 
 .bp3-icon-learning::before{
-  content:"î¤„"; }
+  content:""; }
 
 .bp3-icon-left-join::before{
-  content:"îž¤"; }
+  content:""; }
 
 .bp3-icon-less-than::before{
-  content:"îŸ£"; }
+  content:""; }
 
 .bp3-icon-less-than-or-equal-to::before{
-  content:"îŸ¤"; }
+  content:""; }
 
 .bp3-icon-lifesaver::before{
-  content:"îŸ‡"; }
+  content:""; }
 
 .bp3-icon-lightbulb::before{
-  content:"îš°"; }
+  content:""; }
 
 .bp3-icon-link::before{
-  content:"î˜­"; }
+  content:""; }
 
 .bp3-icon-list::before{
-  content:"â˜°"; }
+  content:"☰"; }
 
 .bp3-icon-list-columns::before{
-  content:"îž¹"; }
+  content:""; }
 
 .bp3-icon-list-detail-view::before{
-  content:"îƒ"; }
+  content:""; }
 
 .bp3-icon-locate::before{
-  content:"î˜™"; }
+  content:""; }
 
 .bp3-icon-lock::before{
-  content:"î˜¥"; }
+  content:""; }
 
 .bp3-icon-log-in::before{
-  content:"îšš"; }
+  content:""; }
 
 .bp3-icon-log-out::before{
-  content:"î™Œ"; }
+  content:""; }
 
 .bp3-icon-manual::before{
-  content:"î›¶"; }
+  content:""; }
 
 .bp3-icon-manually-entered-data::before{
-  content:"îŠ"; }
+  content:""; }
 
 .bp3-icon-map::before{
-  content:"î™¢"; }
+  content:""; }
 
 .bp3-icon-map-create::before{
-  content:"î"; }
+  content:""; }
 
 .bp3-icon-map-marker::before{
-  content:"î™½"; }
+  content:""; }
 
 .bp3-icon-maximize::before{
-  content:"î˜µ"; }
+  content:""; }
 
 .bp3-icon-media::before{
-  content:"î˜¬"; }
+  content:""; }
 
 .bp3-icon-menu::before{
-  content:"î¢"; }
+  content:""; }
 
 .bp3-icon-menu-closed::before{
-  content:"î™•"; }
+  content:""; }
 
 .bp3-icon-menu-open::before{
-  content:"î™”"; }
+  content:""; }
 
 .bp3-icon-merge-columns::before{
-  content:"î"; }
+  content:""; }
 
 .bp3-icon-merge-links::before{
-  content:"î˜‹"; }
+  content:""; }
 
 .bp3-icon-minimize::before{
-  content:"î˜´"; }
+  content:""; }
 
 .bp3-icon-minus::before{
-  content:"âˆ’"; }
+  content:"−"; }
 
 .bp3-icon-mobile-phone::before{
-  content:"îœ—"; }
+  content:""; }
 
 .bp3-icon-mobile-video::before{
-  content:"îšŸ"; }
+  content:""; }
 
 .bp3-icon-moon::before{
-  content:"î”"; }
+  content:""; }
 
 .bp3-icon-more::before{
-  content:"î˜ª"; }
+  content:""; }
 
 .bp3-icon-mountain::before{
-  content:"îž±"; }
+  content:""; }
 
 .bp3-icon-move::before{
-  content:"îš“"; }
+  content:""; }
 
 .bp3-icon-mugshot::before{
-  content:"î››"; }
+  content:""; }
 
 .bp3-icon-multi-select::before{
-  content:"îš€"; }
+  content:""; }
 
 .bp3-icon-music::before{
-  content:"îš¦"; }
+  content:""; }
 
 .bp3-icon-new-drawing::before{
-  content:"î¤…"; }
+  content:""; }
 
 .bp3-icon-new-grid-item::before{
-  content:"î‡"; }
+  content:""; }
 
 .bp3-icon-new-layer::before{
-  content:"î¤‚"; }
+  content:""; }
 
 .bp3-icon-new-layers::before{
-  content:"î¤ƒ"; }
+  content:""; }
 
 .bp3-icon-new-link::before{
-  content:"î™œ"; }
+  content:""; }
 
 .bp3-icon-new-object::before{
-  content:"î™"; }
+  content:""; }
 
 .bp3-icon-new-person::before{
-  content:"î›©"; }
+  content:""; }
 
 .bp3-icon-new-prescription::before{
-  content:"îž‹"; }
+  content:""; }
 
 .bp3-icon-new-text-box::before{
-  content:"î™›"; }
+  content:""; }
 
 .bp3-icon-ninja::before{
-  content:"î™µ"; }
+  content:""; }
 
 .bp3-icon-not-equal-to::before{
-  content:"îŸ "; }
+  content:""; }
 
 .bp3-icon-notifications::before{
-  content:"î˜¤"; }
+  content:""; }
 
 .bp3-icon-notifications-updated::before{
-  content:"îž¸"; }
+  content:""; }
 
 .bp3-icon-numbered-list::before{
-  content:"î†"; }
+  content:""; }
 
 .bp3-icon-numerical::before{
-  content:"î–"; }
+  content:""; }
 
 .bp3-icon-office::before{
-  content:"îš›"; }
+  content:""; }
 
 .bp3-icon-offline::before{
-  content:"î™º"; }
+  content:""; }
 
 .bp3-icon-oil-field::before{
-  content:"îœ¿"; }
+  content:""; }
 
 .bp3-icon-one-column::before{
-  content:"î™˜"; }
+  content:""; }
 
 .bp3-icon-outdated::before{
-  content:"îž¨"; }
+  content:""; }
 
 .bp3-icon-page-layout::before{
-  content:"î™ "; }
+  content:""; }
 
 .bp3-icon-panel-stats::before{
-  content:"î·"; }
+  content:""; }
 
 .bp3-icon-panel-table::before{
-  content:"î¸"; }
+  content:""; }
 
 .bp3-icon-paperclip::before{
-  content:"î™¤"; }
+  content:""; }
 
 .bp3-icon-paragraph::before{
-  content:"î¬"; }
+  content:""; }
 
 .bp3-icon-path::before{
-  content:"î“"; }
+  content:""; }
 
 .bp3-icon-path-search::before{
-  content:"î™ž"; }
+  content:""; }
 
 .bp3-icon-pause::before{
-  content:"îš©"; }
+  content:""; }
 
 .bp3-icon-people::before{
-  content:"î˜½"; }
+  content:""; }
 
 .bp3-icon-percentage::before{
-  content:"îª"; }
+  content:""; }
 
 .bp3-icon-person::before{
-  content:"î˜¼"; }
+  content:""; }
 
 .bp3-icon-phone::before{
-  content:"â˜Ž"; }
+  content:"☎"; }
 
 .bp3-icon-pie-chart::before{
-  content:"îš„"; }
+  content:""; }
 
 .bp3-icon-pin::before{
-  content:"î™†"; }
+  content:""; }
 
 .bp3-icon-pivot::before{
-  content:"î›±"; }
+  content:""; }
 
 .bp3-icon-pivot-table::before{
-  content:"î›«"; }
+  content:""; }
 
 .bp3-icon-play::before{
-  content:"îš«"; }
+  content:""; }
 
 .bp3-icon-plus::before{
   content:"+"; }
 
 .bp3-icon-polygon-filter::before{
-  content:"î›‘"; }
+  content:""; }
 
 .bp3-icon-power::before{
-  content:"î›™"; }
+  content:""; }
 
 .bp3-icon-predictive-analysis::before{
-  content:"î˜—"; }
+  content:""; }
 
 .bp3-icon-prescription::before{
-  content:"îžŠ"; }
+  content:""; }
 
 .bp3-icon-presentation::before{
-  content:"îš‡"; }
+  content:""; }
 
 .bp3-icon-print::before{
-  content:"âŽ™"; }
+  content:"⎙"; }
 
 .bp3-icon-projects::before{
-  content:"î˜¢"; }
+  content:""; }
 
 .bp3-icon-properties::before{
-  content:"î˜±"; }
+  content:""; }
 
 .bp3-icon-property::before{
-  content:"î™š"; }
+  content:""; }
 
 .bp3-icon-publish-function::before{
-  content:"î’"; }
+  content:""; }
 
 .bp3-icon-pulse::before{
-  content:"î›¨"; }
+  content:""; }
 
 .bp3-icon-random::before{
-  content:"îš˜"; }
+  content:""; }
 
 .bp3-icon-record::before{
-  content:"îš®"; }
+  content:""; }
 
 .bp3-icon-redo::before{
-  content:"î›„"; }
+  content:""; }
 
 .bp3-icon-refresh::before{
-  content:"î™ƒ"; }
+  content:""; }
 
 .bp3-icon-regression-chart::before{
-  content:"î˜"; }
+  content:""; }
 
 .bp3-icon-remove::before{
-  content:"î˜¿"; }
+  content:""; }
 
 .bp3-icon-remove-column::before{
-  content:"î•"; }
+  content:""; }
 
 .bp3-icon-remove-column-left::before{
-  content:"î›½"; }
+  content:""; }
 
 .bp3-icon-remove-column-right::before{
-  content:"î›¾"; }
+  content:""; }
 
 .bp3-icon-remove-row-bottom::before{
-  content:"î›¼"; }
+  content:""; }
 
 .bp3-icon-remove-row-top::before{
-  content:"î›»"; }
+  content:""; }
 
 .bp3-icon-repeat::before{
-  content:"îš’"; }
+  content:""; }
 
 .bp3-icon-reset::before{
-  content:"îŸ–"; }
+  content:""; }
 
 .bp3-icon-resolve::before{
-  content:"î™²"; }
+  content:""; }
 
 .bp3-icon-rig::before{
-  content:"î€"; }
+  content:""; }
 
 .bp3-icon-right-join::before{
-  content:"îž¥"; }
+  content:""; }
 
 .bp3-icon-ring::before{
-  content:"î›²"; }
+  content:""; }
 
 .bp3-icon-rotate-document::before{
-  content:"î›¡"; }
+  content:""; }
 
 .bp3-icon-rotate-page::before{
-  content:"î›¢"; }
+  content:""; }
 
 .bp3-icon-satellite::before{
-  content:"î«"; }
+  content:""; }
 
 .bp3-icon-saved::before{
-  content:"îš¶"; }
+  content:""; }
 
 .bp3-icon-scatter-plot::before{
-  content:"îœ¾"; }
+  content:""; }
 
 .bp3-icon-search::before{
-  content:"î™‹"; }
+  content:""; }
 
 .bp3-icon-search-around::before{
-  content:"î˜ˆ"; }
+  content:""; }
 
 .bp3-icon-search-template::before{
-  content:"î˜¨"; }
+  content:""; }
 
 .bp3-icon-search-text::before{
-  content:"î™£"; }
+  content:""; }
 
 .bp3-icon-segmented-control::before{
-  content:"î›¬"; }
+  content:""; }
 
 .bp3-icon-select::before{
-  content:"î˜–"; }
+  content:""; }
 
 .bp3-icon-selection::before{
-  content:"â¦¿"; }
+  content:"⦿"; }
 
 .bp3-icon-send-to::before{
-  content:"î™®"; }
+  content:""; }
 
 .bp3-icon-send-to-graph::before{
-  content:"îœ¶"; }
+  content:""; }
 
 .bp3-icon-send-to-map::before{
-  content:"îœ·"; }
+  content:""; }
 
 .bp3-icon-series-add::before{
-  content:"îž–"; }
+  content:""; }
 
 .bp3-icon-series-configuration::before{
-  content:"îžš"; }
+  content:""; }
 
 .bp3-icon-series-derived::before{
-  content:"îž™"; }
+  content:""; }
 
 .bp3-icon-series-filtered::before{
-  content:"îž˜"; }
+  content:""; }
 
 .bp3-icon-series-search::before{
-  content:"îž—"; }
+  content:""; }
 
 .bp3-icon-settings::before{
-  content:"îš¢"; }
+  content:""; }
 
 .bp3-icon-share::before{
-  content:"î˜®"; }
+  content:""; }
 
 .bp3-icon-shield::before{
-  content:"îž²"; }
+  content:""; }
 
 .bp3-icon-shop::before{
-  content:"î›‚"; }
+  content:""; }
 
 .bp3-icon-shopping-cart::before{
-  content:"î›"; }
+  content:""; }
 
 .bp3-icon-signal-search::before{
-  content:"î¤‰"; }
+  content:""; }
 
 .bp3-icon-sim-card::before{
-  content:"îœ˜"; }
+  content:""; }
 
 .bp3-icon-slash::before{
-  content:"î©"; }
+  content:""; }
 
 .bp3-icon-small-cross::before{
-  content:"î›—"; }
+  content:""; }
 
 .bp3-icon-small-minus::before{
-  content:"îœŽ"; }
+  content:""; }
 
 .bp3-icon-small-plus::before{
-  content:"îœ"; }
+  content:""; }
 
 .bp3-icon-small-tick::before{
-  content:"î›˜"; }
+  content:""; }
 
 .bp3-icon-snowflake::before{
-  content:"îž¶"; }
+  content:""; }
 
 .bp3-icon-social-media::before{
-  content:"î™±"; }
+  content:""; }
 
 .bp3-icon-sort::before{
-  content:"î™"; }
+  content:""; }
 
 .bp3-icon-sort-alphabetical::before{
-  content:"î™"; }
+  content:""; }
 
 .bp3-icon-sort-alphabetical-desc::before{
-  content:"î›ˆ"; }
+  content:""; }
 
 .bp3-icon-sort-asc::before{
-  content:"î›•"; }
+  content:""; }
 
 .bp3-icon-sort-desc::before{
-  content:"î›–"; }
+  content:""; }
 
 .bp3-icon-sort-numerical::before{
-  content:"î™Ž"; }
+  content:""; }
 
 .bp3-icon-sort-numerical-desc::before{
-  content:"î›‰"; }
+  content:""; }
 
 .bp3-icon-split-columns::before{
-  content:"î"; }
+  content:""; }
 
 .bp3-icon-square::before{
-  content:"îš†"; }
+  content:""; }
 
 .bp3-icon-stacked-chart::before{
-  content:"î›§"; }
+  content:""; }
 
 .bp3-icon-star::before{
-  content:"â˜…"; }
+  content:"★"; }
 
 .bp3-icon-star-empty::before{
-  content:"â˜†"; }
+  content:"☆"; }
 
 .bp3-icon-step-backward::before{
-  content:"îš§"; }
+  content:""; }
 
 .bp3-icon-step-chart::before{
-  content:"îœ"; }
+  content:""; }
 
 .bp3-icon-step-forward::before{
-  content:"îš­"; }
+  content:""; }
 
 .bp3-icon-stop::before{
-  content:"îšª"; }
+  content:""; }
 
 .bp3-icon-stopwatch::before{
-  content:"î¤"; }
+  content:""; }
 
 .bp3-icon-strikethrough::before{
-  content:"îž¦"; }
+  content:""; }
 
 .bp3-icon-style::before{
-  content:"î˜"; }
+  content:""; }
 
 .bp3-icon-swap-horizontal::before{
-  content:"î…"; }
+  content:""; }
 
 .bp3-icon-swap-vertical::before{
-  content:"î„"; }
+  content:""; }
 
 .bp3-icon-symbol-circle::before{
-  content:"îœ®"; }
+  content:""; }
 
 .bp3-icon-symbol-cross::before{
-  content:"îœ±"; }
+  content:""; }
 
 .bp3-icon-symbol-diamond::before{
-  content:"îœ°"; }
+  content:""; }
 
 .bp3-icon-symbol-square::before{
-  content:"îœ¯"; }
+  content:""; }
 
 .bp3-icon-symbol-triangle-down::before{
-  content:"îœ³"; }
+  content:""; }
 
 .bp3-icon-symbol-triangle-up::before{
-  content:"îœ²"; }
+  content:""; }
 
 .bp3-icon-tag::before{
-  content:"î˜œ"; }
+  content:""; }
 
 .bp3-icon-take-action::before{
-  content:"î›Š"; }
+  content:""; }
 
 .bp3-icon-taxi::before{
-  content:"îžž"; }
+  content:""; }
 
 .bp3-icon-text-highlight::before{
-  content:"î›"; }
+  content:""; }
 
 .bp3-icon-th::before{
-  content:"î™§"; }
+  content:""; }
 
 .bp3-icon-th-derived::before{
-  content:"î™©"; }
+  content:""; }
 
 .bp3-icon-th-disconnect::before{
-  content:"îŸ˜"; }
+  content:""; }
 
 .bp3-icon-th-filtered::before{
-  content:"îŸ†"; }
+  content:""; }
 
 .bp3-icon-th-list::before{
-  content:"î™¨"; }
+  content:""; }
 
 .bp3-icon-thumbs-down::before{
-  content:"îš¾"; }
+  content:""; }
 
 .bp3-icon-thumbs-up::before{
-  content:"îš½"; }
+  content:""; }
 
 .bp3-icon-tick::before{
-  content:"âœ“"; }
+  content:"✓"; }
 
 .bp3-icon-tick-circle::before{
-  content:"î¹"; }
+  content:""; }
 
 .bp3-icon-time::before{
-  content:"â²"; }
+  content:"⏲"; }
 
 .bp3-icon-timeline-area-chart::before{
-  content:"î›"; }
+  content:""; }
 
 .bp3-icon-timeline-bar-chart::before{
-  content:"î˜ "; }
+  content:""; }
 
 .bp3-icon-timeline-events::before{
-  content:"î˜ž"; }
+  content:""; }
 
 .bp3-icon-timeline-line-chart::before{
-  content:"î˜Ÿ"; }
+  content:""; }
 
 .bp3-icon-tint::before{
-  content:"îš²"; }
+  content:""; }
 
 .bp3-icon-torch::before{
-  content:"î™·"; }
+  content:""; }
 
 .bp3-icon-tractor::before{
-  content:"î¤Œ"; }
+  content:""; }
 
 .bp3-icon-train::before{
-  content:"îžŸ"; }
+  content:""; }
 
 .bp3-icon-translate::before{
-  content:"î™"; }
+  content:""; }
 
 .bp3-icon-trash::before{
-  content:"î˜»"; }
+  content:""; }
 
 .bp3-icon-tree::before{
-  content:"îž·"; }
+  content:""; }
 
 .bp3-icon-trending-down::before{
-  content:"îœš"; }
+  content:""; }
 
 .bp3-icon-trending-up::before{
-  content:"îœ™"; }
+  content:""; }
 
 .bp3-icon-truck::before{
-  content:"î¤‹"; }
+  content:""; }
 
 .bp3-icon-two-columns::before{
-  content:"î™—"; }
+  content:""; }
 
 .bp3-icon-unarchive::before{
-  content:"î¤†"; }
+  content:""; }
 
 .bp3-icon-underline::before{
-  content:"âŽ"; }
+  content:"⎁"; }
 
 .bp3-icon-undo::before{
-  content:"âŽŒ"; }
+  content:"⎌"; }
 
 .bp3-icon-ungroup-objects::before{
-  content:"îšˆ"; }
+  content:""; }
 
 .bp3-icon-unknown-vehicle::before{
-  content:"îœ½"; }
+  content:""; }
 
 .bp3-icon-unlock::before{
-  content:"î˜¦"; }
+  content:""; }
 
 .bp3-icon-unpin::before{
-  content:"î™"; }
+  content:""; }
 
 .bp3-icon-unresolve::before{
-  content:"î™¹"; }
+  content:""; }
 
 .bp3-icon-updated::before{
-  content:"îž§"; }
+  content:""; }
 
 .bp3-icon-upload::before{
-  content:"îš"; }
+  content:""; }
 
 .bp3-icon-user::before{
-  content:"î˜§"; }
+  content:""; }
 
 .bp3-icon-variable::before{
-  content:"î›µ"; }
+  content:""; }
 
 .bp3-icon-vertical-bar-chart-asc::before{
-  content:"î›"; }
+  content:""; }
 
 .bp3-icon-vertical-bar-chart-desc::before{
-  content:"îœœ"; }
+  content:""; }
 
 .bp3-icon-vertical-distribution::before{
-  content:"îœ¡"; }
+  content:""; }
 
 .bp3-icon-video::before{
-  content:"îš "; }
+  content:""; }
 
 .bp3-icon-volume-down::before{
-  content:"îš¤"; }
+  content:""; }
 
 .bp3-icon-volume-off::before{
-  content:"îš£"; }
+  content:""; }
 
 .bp3-icon-volume-up::before{
-  content:"îš¥"; }
+  content:""; }
 
 .bp3-icon-walk::before{
-  content:"îž"; }
+  content:""; }
 
 .bp3-icon-warning-sign::before{
-  content:"î™‡"; }
+  content:""; }
 
 .bp3-icon-waterfall-chart::before{
-  content:"î›¦"; }
+  content:""; }
 
 .bp3-icon-widget::before{
-  content:"î™¸"; }
+  content:""; }
 
 .bp3-icon-widget-button::before{
-  content:"îž"; }
+  content:""; }
 
 .bp3-icon-widget-footer::before{
-  content:"îž’"; }
+  content:""; }
 
 .bp3-icon-widget-header::before{
-  content:"îž‘"; }
+  content:""; }
 
 .bp3-icon-wrench::before{
-  content:"îœ´"; }
+  content:""; }
 
 .bp3-icon-zoom-in::before{
-  content:"î™"; }
+  content:""; }
 
 .bp3-icon-zoom-out::before{
-  content:"î™‚"; }
+  content:""; }
 
 .bp3-icon-zoom-to-fit::before{
-  content:"î™»"; }
+  content:""; }
 .bp3-submenu > .bp3-popover-wrapper{
   display:block; }
 
@@ -7224,17 +7270,21 @@ span.bp3-popover-target{
     background-color:#db3737; }
 
 .bp3-slider-handle{
+  -webkit-box-shadow:inset 0 0 0 1px rgba(16, 22, 26, 0.2), inset 0 -1px 0 rgba(16, 22, 26, 0.1);
+          box-shadow:inset 0 0 0 1px rgba(16, 22, 26, 0.2), inset 0 -1px 0 rgba(16, 22, 26, 0.1);
   background-color:#f5f8fa;
-    color: #182026;
-	position: absolute;
-	top: 0;
-	left: 0;
-	border-radius: 3px;
-	cursor: pointer;
-	width: 16px;
-	height: 16px;
-	background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0));
-}
+  background-image:-webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.8)), to(rgba(255, 255, 255, 0)));
+  background-image:linear-gradient(to bottom, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0));
+  color:#182026;
+  position:absolute;
+  top:0;
+  left:0;
+  border-radius:3px;
+  -webkit-box-shadow:0 0 0 1px rgba(16, 22, 26, 0.2), 0 1px 1px rgba(16, 22, 26, 0.2);
+          box-shadow:0 0 0 1px rgba(16, 22, 26, 0.2), 0 1px 1px rgba(16, 22, 26, 0.2);
+  cursor:pointer;
+  width:16px;
+  height:16px; }
   .bp3-slider-handle:hover{
     -webkit-box-shadow:inset 0 0 0 1px rgba(16, 22, 26, 0.2), inset 0 -1px 0 rgba(16, 22, 26, 0.1);
             box-shadow:inset 0 0 0 1px rgba(16, 22, 26, 0.2), inset 0 -1px 0 rgba(16, 22, 26, 0.1);
@@ -7475,7 +7525,7 @@ span.bp3-popover-target{
       border-radius:3px;
       width:100%;
       padding:0 10px; }
-      .bp3-tabs.bp3-vertical > .bp3-tab-list .bp3-tab[aria-selected=true]{
+      .bp3-tabs.bp3-vertical > .bp3-tab-list .bp3-tab[aria-selected="true"]{
         -webkit-box-shadow:none;
                 box-shadow:none;
         background-color:rgba(19, 124, 189, 0.2); }
@@ -7532,10 +7582,10 @@ span.bp3-popover-target{
     -webkit-box-shadow:none !important;
             box-shadow:none !important;
     background-color:transparent !important; }
-  .bp3-tab[aria-disabled=true]{
+  .bp3-tab[aria-disabled="true"]{
     cursor:not-allowed;
     color:rgba(92, 112, 128, 0.6); }
-  .bp3-tab[aria-selected=true]{
+  .bp3-tab[aria-selected="true"]{
     border-radius:0;
     -webkit-box-shadow:inset 0 -3px 0 #106ba3;
             box-shadow:inset 0 -3px 0 #106ba3; }
@@ -7549,7 +7599,7 @@ span.bp3-popover-target{
 
 .bp3-tab-panel{
   margin-top:20px; }
-  .bp3-tab-panel[aria-hidden=true]{
+  .bp3-tab-panel[aria-hidden="true"]{
     display:none; }
 
 .bp3-tab-indicator-wrapper{
@@ -7580,9 +7630,9 @@ span.bp3-popover-target{
 
 .bp3-dark .bp3-tab{
   color:#f5f8fa; }
-  .bp3-dark .bp3-tab[aria-disabled=true]{
+  .bp3-dark .bp3-tab[aria-disabled="true"]{
     color:rgba(167, 182, 194, 0.6); }
-  .bp3-dark .bp3-tab[aria-selected=true]{
+  .bp3-dark .bp3-tab[aria-selected="true"]{
     -webkit-box-shadow:inset 0 -3px 0 #48aff0;
             box-shadow:inset 0 -3px 0 #48aff0; }
   .bp3-dark .bp3-tab[aria-selected="true"], .bp3-dark .bp3-tab:not([aria-disabled="true"]):hover{
@@ -7856,7 +7906,7 @@ span.bp3-popover-target{
     font-style:normal;
     -moz-osx-font-smoothing:grayscale;
     -webkit-font-smoothing:antialiased;
-    content:"î›—"; }
+    content:""; }
   .bp3-large .bp3-tag-remove{
     margin-right:-10px !important;
     padding:5px;
@@ -8534,7 +8584,7 @@ span.bp3-popover-target{
     -webkit-transform:rotate(90deg);
             transform:rotate(90deg); }
   .bp3-tree-node-caret.bp3-icon-standard::before{
-    content:"îš•"; }
+    content:""; }
 
 .bp3-tree-node-icon{
   position:relative;
@@ -11896,7 +11946,7 @@ THE SOFTWARE.
   padding: 0 var(--jp-code-padding);
 }
 
-.jp-CodeMirrorEditor[data-type=inline] .CodeMirror-dialog {
+.jp-CodeMirrorEditor[data-type='inline'] .CodeMirror-dialog {
   background-color: var(--jp-layout-color0);
   color: var(--jp-content-font-color1);
 }
@@ -11920,13 +11970,13 @@ THE SOFTWARE.
   cursor: text;
 }
 
-.jp-CodeMirrorEditor[data-type=inline] .CodeMirror-cursor {
+.jp-CodeMirrorEditor[data-type='inline'] .CodeMirror-cursor {
   border-left: var(--jp-code-cursor-width0) solid var(--jp-editor-cursor-color);
 }
 
 /* When zoomed out 67% and 33% on a screen of 1440 width x 900 height */
 @media screen and (min-width: 2138px) and (max-width: 4319px) {
-  .jp-CodeMirrorEditor[data-type=inline] .CodeMirror-cursor {
+  .jp-CodeMirrorEditor[data-type='inline'] .CodeMirror-cursor {
     border-left: var(--jp-code-cursor-width1) solid
       var(--jp-editor-cursor-color);
   }
@@ -11934,7 +11984,7 @@ THE SOFTWARE.
 
 /* When zoomed out less than 33% */
 @media screen and (min-width: 4320px) {
-  .jp-CodeMirrorEditor[data-type=inline] .CodeMirror-cursor {
+  .jp-CodeMirrorEditor[data-type='inline'] .CodeMirror-cursor {
     border-left: var(--jp-code-cursor-width2) solid
       var(--jp-editor-cursor-color);
   }
@@ -12273,7 +12323,7 @@ THE SOFTWARE.
   text-decoration: underline;
 }
 
-.jp-RenderedText[data-mime-type="application/vnd.jupyter.stderr"] {
+.jp-RenderedText[data-mime-type='application/vnd.jupyter.stderr'] {
   background: var(--jp-rendermime-error-background);
   padding-top: var(--jp-code-padding);
 }
@@ -12552,16 +12602,16 @@ THE SOFTWARE.
 }
 
 /* Change color behind transparent images if they need it... */
-[data-jp-theme-light=false] .jp-RenderedImage img.jp-needs-light-background {
+[data-jp-theme-light='false'] .jp-RenderedImage img.jp-needs-light-background {
   background-color: var(--jp-inverse-layout-color1);
 }
-[data-jp-theme-light=true] .jp-RenderedImage img.jp-needs-dark-background {
+[data-jp-theme-light='true'] .jp-RenderedImage img.jp-needs-dark-background {
   background-color: var(--jp-inverse-layout-color1);
 }
 /* ...or leave it untouched if they don't */
-[data-jp-theme-light=false] .jp-RenderedImage img.jp-needs-dark-background {
+[data-jp-theme-light='false'] .jp-RenderedImage img.jp-needs-dark-background {
 }
-[data-jp-theme-light=true] .jp-RenderedImage img.jp-needs-light-background {
+[data-jp-theme-light='true'] .jp-RenderedImage img.jp-needs-light-background {
 }
 
 .jp-RenderedHTMLCommon img,
@@ -14204,14 +14254,13 @@ a.anchor-link {
     }
     init_mathjax();
     </script>
-    {% seo %}
     <!-- End of mathjax configuration --></head>
 <body class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
 
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h1 id="Reinforced-EM-Algorithm-through-Clever-Initialization-for-Clustering-with-Gaussian-Mixture-Models">Reinforced EM Algorithm through Clever Initialization for Clustering with Gaussian Mixture Models<a class="anchor-link" href="#Reinforced-EM-Algorithm-through-Clever-Initialization-for-Clustering-with-Gaussian-Mixture-Models">&#182;</a></h1><p><strong>Mimi Zhang</strong> [ <a href="https://orcid.org/0000-0002-3807-297X">https://orcid.org/0000-0002-3807-297X</a> ]</p>
-<p>This notebook introduces an efficient clustering algorithm developed by Tobin et al. (2022), herein called the REM algorithm, and provides a step-by-step tutorial on how to implement the GitHub library on real datasets.</p>
+<p>This notebook introduces an efficient clustering algorithm developed by Tobin et al. (2023), called the REM algorithm, and provides a step-by-step tutorial on how to implement the GitHub library on real datasets.</p>
 
 </div>
 </div>
@@ -14288,7 +14337,7 @@ f(\mathbf{x})=\sum_{j=1}^{\kappa}\pi_j \phi(\mathbf{x}; \mathbf{e}_j, \mathbf{\S
 (1) Calculate the weight vector $\mathbf{\delta}=(\delta_1, \ldots, \delta_\kappa)^T$:
     \begin{equation*}
     \delta_v =
-    \max\left\{\Phi\left(-\frac{1}{2}\sqrt{(\mathbf{e}_v-\mathbf{e}_j)^T\mathbf{\Sigma}_j^{-1}(\mathbf{e}_v-\mathbf{e}_j)}\right): j = 1, \ldots, \kappa, j\neq v\right\},~~~~v=1, \ldots, \kappa.
+    \max\left\{\Pr\left(\pi_v\phi(X; \mathbf{e}_v, \mathbf{\Sigma}_v) < \pi_j\phi(X; \mathbf{e}_j, \mathbf{\Sigma}_j) | X \sim N(\mathbf{e}_v, \mathbf{\Sigma}_v )\right): j = 1, \ldots, \kappa, j\neq v\right\},~~~~v=1, \ldots, \kappa.
     \end{equation*}
 
 
@@ -14301,7 +14350,7 @@ f(\mathbf{x})=\sum_{j=1}^{\kappa}\pi_j \phi(\mathbf{x}; \mathbf{e}_j, \mathbf{\S
 (3) Remove the exemplar $\mathbf{e}_j$ with $\sum_{i=1}^n r_{ij}=0$ and update $\kappa=\kappa-1$.
 
 <strong>Output</strong>: The retained exemplars $\{\mathbf{e}_1, \ldots, \mathbf{e}_\kappa\}$ and the responsibilities $\{r_{ij}: i=1, \ldots, n, j=1, \ldots, \kappa\}$.
-</div><p>Both the weight vector $\mathbf{\delta}$ and the penalty function are well-motivatied. The original work Tobin et al. (2022) provides detailed explainations on them. The pruning block is very efficient: (1) the algorithm complexity is linear, and (2) exemplars not representing Gaussian means are always pruned first.</p>
+</div><p>Both the weight vector $\mathbf{\delta}$ and the penalty function are well-motivatied. The original work Tobin et al. (2023) provides detailed explainations on them. In particular, the conditinal probability $\Pr\left(\pi_v\phi(X; \mathbf{e}_v, \mathbf{\Sigma}_v) &lt; \pi_j\phi(X; \mathbf{e}_j, \mathbf{\Sigma}_j) | X \sim N(\mathbf{e}_v, \mathbf{\Sigma}_v )\right)$ is the likelihood that an instance from the vth mixture component is misclassified into the jth mixture component. Therefore, $\delta_v$ measures the overlapping degree of the vth mixture component w.r.t. the other mixture components. The pruning block is very efficient: (1) the algorithm complexity is linear, and (2) exemplars not representing Gaussian means are always pruned first.</p>
 <p>The flowchart below summarizes the REM algorithm. The blue left arrow "EM" means applying the EM block algorithm, and the blue right arrow "Penalty Function" means applying the pruning block algorithm. The loop produces a sequence of nested clusterings, and we pick the optimal clustering via the ICL criterion.
 <img src="images/REM_Flowchart.jpg" style="width: 700px;"/></p>
 
@@ -14309,9 +14358,8 @@ f(\mathbf{x})=\sum_{j=1}^{\kappa}\pi_j \phi(\mathbf{x}; \mathbf{e}_j, \mathbf{\S
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="The-Python-Library">The Python Library<a class="anchor-link" href="#The-Python-Library">&#182;</a></h2><p>The Python libraty is hosted in <a href="https://anonymous.4open.science/r/REM-2753/README.md"> GitHub</a>. We here run the code on two real datasets: <em>Pendigits</em> and <em>Optdigits</em>, both available in the UCI Machine Learning Repository.</p>
-<h3 id="The-Pendigits-Data">The Pendigits Data<a class="anchor-link" href="#The-Pendigits-Data">&#182;</a></h3><p>Pendigits has</p>
-<h3 id="The-Optdigits-Data">The Optdigits Data<a class="anchor-link" href="#The-Optdigits-Data">&#182;</a></h3><p>Optdigits has</p>
+<h2 id="The-Python-Library">The Python Library<a class="anchor-link" href="#The-Python-Library">&#182;</a></h2><p>The code for REM is currently hosted in <a href="https://github.com/tobinjo96/Exemplar-GMM-with-L1-Regularization"> Github</a>. A well documented Python libraty will be available on PyPI soon.</p>
+<p>...</p>
 
 </div>
 </div>
@@ -14323,11 +14371,9 @@ f(\mathbf{x})=\sum_{j=1}^{\kappa}\pi_j \phi(\mathbf{x}; \mathbf{e}_j, \mathbf{\S
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="References">References<a class="anchor-link" href="#References">&#182;</a></h2><p>
-		(1) Tobin, J., Ho, C.P., and Zhang, M. (2023). Reinforced EM Algorithm for Clustering with Gaussian Mixture Models. 
-		2023 SIAM International Conference on Data Mining (SDM).</p>
+<h2 id="References">References<a class="anchor-link" href="#References">&#182;</a></h2><p>(1) Tobin, J., Ho, C.P., and Zhang, M. (2023). Reinforced EM Algorithm for Clustering with Gaussian Mixture Models, In Proceedings of the 2023 SIAM International Conference on Data Mining (SDM 2023).</p>
 <p>(2) Bishop, C. (2006). Pattern Recognition and Machine Learning. Information Science and Statistics. Springer-Verlag New York, 1st edition.</p>
-<p>(3) Jin, C., Zhang, Y., Balakrishnan, S., Wainwright, M. J., and Jordan, M. I. (2016). Local maxima in the likelihood of gaussian mixture models: Structural results and algorithmic consequences. In Advances in Neural Information Processing Systems 29, pages 4116-4124.</p>
+<p>(3) Jin, C., Zhang, Y., Balakrishnan, S., Wainwright, M. J., and Jordan, M. I. (2016). Local Maxima in the Likelihood of Gaussian Mixture Models: Structural Results and Algorithmic Consequences. In Proceedings of the 30th International Conference on Neural Information Processing Systems (NIPS 2016).</p>
 
 </div>
 </div>
