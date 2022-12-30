@@ -14304,27 +14304,28 @@ The classical method for computing maximum-likelihood estimates for GMMs is the 
 <p>The REM algorithm is an agglomerative hierarchical clustering method. It begins with every exemplar representing a cluster (center), and then iteratively prunes the exemplars that are not a Gaussian mean. There are mainly two reasons for pruning the exemplars:</p>
 <p>(1) The density-peak finding method has tuning parameters, and it is unknowable whether each of the detected exemplars represents a unique density peak. In practice, the initial exemplar set inclues all possible exemplars, and hence there could be multiple exemplars associated with one density peak.</p>
 <p>(2) The set of density peaks in a GMM is not in one-to-one correspondence with the set of Gaussian means: the number of peaks can be significantly larger than the number of mixture components. Therefore, even if the detected exemplars are unique density peaks, we still need to prune the exemplars to retaiin only the exemplars that represent the Gaussian means.</p>
-<p>The figure below shows the detected exemplars (red stars) from the density-peak finding method with different settings of the tuning parameters. Well seperated Gaussian components are indicated by different colors. The density-peak finding method detects multiple exemplars for one density peak. An important feature of the REM algorithm is that it produces a decision graph that helps the user select all possible exemplars. We will explore this feature later.
-<img src="images/REM_Exemplars.jpg" style="width: 800px;"/></p>
-<p>The REM algorithm has two algorithmic blocks: the EM block and the pruning block. Given the updated data pool (the original data without the retained exemplars), the EM block operates as follows.</p>
+<p>The figure below shows the detected exemplars (red stars) from the density-peak finding method with different settings of the tuning parameters. Well seperated Gaussian components are indicated by different colors. The density-peak finding method detects multiple exemplars for one density peak. An important feature of the REM algorithm is that it produces a decision graph that helps the user select all possible exemplars. We will explore this feature later.</p>
+<p><img src="images/REM_Exemplars.jpg" style="width: 800px;"/></p><p>The REM algorithm has two algorithmic blocks: the EM block and the pruning block. Given the updated data pool (the original data without the retained exemplars), the EM block operates as follows.</p>
 <div style="background-color:rgba(0, 0, 0, 0.0470588); padding:10px 0;font-family:monospace;">
 
-<strong>Input</strong>: The retained exemplars $\{\mathbf{e}_1, \ldots, \mathbf{e}_\kappa\}$ and the responsibilities $\{r_{ij}: i=1, \ldots, n, j=1, \ldots, \kappa\}$.
+<p><strong>Input</strong>: The retained exemplars $\{\mathbf{e}_1, \ldots, \mathbf{e}_\kappa\}$ and the responsibilities $\{r_{ij}: i=1, \ldots, n, j=1, \ldots, \kappa\}$.</p>
 
-(1) Update the estimates: for $j=1, \ldots, \kappa$,
+<p>(1) Update the estimates: for $j=1, \ldots, \kappa$,
       \begin{align*}
        \pi_j=\frac{\sum_{i=1}^{n}r_{ij}}{n}, ~~~
        \mathbf{\Sigma}_j=\frac{\sum_{i=1}^{n}r_{ij}(\mathbf{x}_i-\mathbf{e}_j)(\mathbf{x}_i-\mathbf{e}_j)^T}{\sum_{i=1}^{n}r_{ij}}.
       \end{align*}
+</p>
 
-(2) Compute the responsibilities: for $i=1, \ldots, n$ and $j=1, \ldots, \kappa$,
+<p>(2) Compute the responsibilities: for $i=1, \ldots, n$ and $j=1, \ldots, \kappa$,
       \begin{equation*}
         r_{ij}=\frac{\pi_j\phi(\mathbf{x}_i; \mathbf{e}_j, \mathbf{\Sigma}_j)}{\sum_{v=1}^{\kappa}\pi_v \phi(\mathbf{x}_i; \mathbf{e}_v, \mathbf{\Sigma}_v)}.
       \end{equation*}
+</p>
 
-(3) Iterate steps 1 and 2 until convergence.
+<p>(3) Iterate steps 1 and 2 until convergence.</p>
 
-<strong>Output</strong>: The mixing proportions $\{\pi_1, \ldots, \pi_\kappa\}$ and the covariance matrices $\{\mathbf{\Sigma}_1, \ldots, \mathbf{\Sigma}_\kappa\}$.
+<p><strong>Output</strong>: The mixing proportions $\{\pi_1, \ldots, \pi_\kappa\}$ and the covariance matrices $\{\mathbf{\Sigma}_1, \ldots, \mathbf{\Sigma}_\kappa\}$.</p>
 </div><p>We immediately notice that, in the EM block, the Gaussian means are fixed (at the given exemplars), and we only need to estimate the mixing proportions and covariance matrices. Since the exemplar set is disjoint from the dataset, the mean vectors will always differ from the data points, and therefore the iteration will never converge to a degenerate solution with a zero covariance matrix. The GMM density at convergence is
 \begin{equation*}
 f(\mathbf{x})=\sum_{j=1}^{\kappa}\pi_j \phi(\mathbf{x}; \mathbf{e}_j, \mathbf{\Sigma}_j).
@@ -14332,28 +14333,27 @@ f(\mathbf{x})=\sum_{j=1}^{\kappa}\pi_j \phi(\mathbf{x}; \mathbf{e}_j, \mathbf{\S
 <p>In the pruning block, we remove one exemplar from $\{\mathbf{e}_1, \ldots, \mathbf{e}_\kappa\}$. The idea is to introduce sparsity into the mixing proportion vector $\mathbf{\pi}$ such that, if $\pi_j=0$, then the exemplar $\mathbf{e}_j$ will be removed from the exemplar set (and put back into the data pool).</p>
 <div style="background-color:rgba(0, 0, 0, 0.0470588); padding:10px 0;font-family:monospace;">
 
-<strong>Input</strong>: The covariance matrices $\{\mathbf{\Sigma}_1, \ldots, \mathbf{\Sigma}_\kappa\}$.
+<p><strong>Input</strong>: The covariance matrices $\{\mathbf{\Sigma}_1, \ldots, \mathbf{\Sigma}_\kappa\}$.</p>
 
-(1) Calculate the weight vector $\mathbf{\delta}=(\delta_1, \ldots, \delta_\kappa)^T$:
+<p>(1) Calculate the weight vector $\mathbf{\delta}=(\delta_1, \ldots, \delta_\kappa)^T$:
     \begin{equation*}
     \delta_v =
     \max\left\{\Pr\left(\pi_v\phi(X; \mathbf{e}_v, \mathbf{\Sigma}_v) < \pi_j\phi(X; \mathbf{e}_j, \mathbf{\Sigma}_j) | X \sim N(\mathbf{e}_v, \mathbf{\Sigma}_v )\right): j = 1, \ldots, \kappa, j\neq v\right\},~~~~v=1, \ldots, \kappa.
     \end{equation*}
+</p>    
 
-
-(2) Find the $\theta$ value such that the solution to the probem below, i.e., the responsibility matrix $\mathbf{R}=[r_{ij}]_{n\times\kappa}$, has exactly one column of zeros.
+<p>(2) Find the $\theta$ value such that the solution to the probem below, i.e., the responsibility matrix $\mathbf{R}=[r_{ij}]_{n\times\kappa}$, has exactly one column of zeros.
 \begin{align*}
   \min_{\mathbf{R}} ~~ \left\{\frac{1}{2} \sum_{i=1}^n \sum_{j=1}^{\kappa} r_{ij}(\mathbf{x}_i-\mathbf{e}_j)^T\mathbf{\Sigma}_j^{-1}(\mathbf{x}_i-\mathbf{e}_j) + \frac{1}{2} \sum_{i=1}^n \sum_{j=1}^{\kappa} r_{ij}\log \left(| \mathbf{\Sigma}_j|\right)+\theta\sum_{j=1}^{\kappa} \delta_j(\frac{1}{n}\sum_{i=1}^n r_{ij})\right\}, \\
   \mbox{subject to}~~\sum_{j=1}^{\kappa} r_{ij}=1, ~~~i=1, \ldots, n. ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-\end{align*}
+\end{align*}</p>
 
-(3) Remove the exemplar $\mathbf{e}_j$ with $\sum_{i=1}^n r_{ij}=0$ and update $\kappa=\kappa-1$.
+<p>(3) Remove the exemplar $\mathbf{e}_j$ with $\sum_{i=1}^n r_{ij}=0$ and update $\kappa=\kappa-1$.</p>
 
-<strong>Output</strong>: The retained exemplars $\{\mathbf{e}_1, \ldots, \mathbf{e}_\kappa\}$ and the responsibilities $\{r_{ij}: i=1, \ldots, n, j=1, \ldots, \kappa\}$.
+<p><strong>Output</strong>: The retained exemplars $\{\mathbf{e}_1, \ldots, \mathbf{e}_\kappa\}$ and the responsibilities $\{r_{ij}: i=1, \ldots, n, j=1, \ldots, \kappa\}$.</p>
 </div><p>Both the weight vector $\mathbf{\delta}$ and the penalty function are well-motivatied. The original work Tobin et al. (2023) provides detailed explainations on them. In particular, the conditinal probability $\Pr\left(\pi_v\phi(X; \mathbf{e}_v, \mathbf{\Sigma}_v) &lt; \pi_j\phi(X; \mathbf{e}_j, \mathbf{\Sigma}_j) | X \sim N(\mathbf{e}_v, \mathbf{\Sigma}_v )\right)$ is the likelihood that an instance from the vth mixture component is misclassified into the jth mixture component. Therefore, $\delta_v$ measures the overlapping degree of the vth mixture component w.r.t. the other mixture components. The pruning block is very efficient: (1) the algorithm complexity is linear, and (2) exemplars not representing Gaussian means are always pruned first.</p>
-<p>The flowchart below summarizes the REM algorithm. The blue left arrow "EM" means applying the EM block algorithm, and the blue right arrow "Penalty Function" means applying the pruning block algorithm. The loop produces a sequence of nested clusterings, and we pick the optimal clustering via the ICL criterion.
-<img src="images/REM_Flowchart.jpg" style="width: 700px;"/></p>
-
+<p>The flowchart below summarizes the REM algorithm. The blue left arrow "EM" means applying the EM block algorithm, and the blue right arrow "Penalty Function" means applying the pruning block algorithm. The loop produces a sequence of nested clusterings, and we pick the optimal clustering via the ICL criterion.</p>
+<p><img src="images/REM_Flowchart.jpg" style="width: 700px;"/></p>
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
