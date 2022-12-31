@@ -14260,34 +14260,64 @@ a.anchor-link {
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h1 id="DCF:-An-Efficient-and-Robust-Density-Based-Clustering-Method">DCF: An Efficient and Robust Density-Based Clustering Method<a class="anchor-link" href="#DCF:-An-Efficient-and-Robust-Density-Based-Clustering-Method">&#182;</a></h1><p><strong>Mimi Zhang</strong> [ <a href="https://orcid.org/0000-0002-3807-297X">https://orcid.org/0000-0002-3807-297X</a> ]</p>
-<p>This notebook introduces the DCF algorithm for cluster analysis (DOI: 10.1109/ICDM51629.2021.00074). DCF is both efficient and robust, gracefully scaling to big datasets.</p>
+<p>This notebook introduces the <a href="https://ieeexplore.ieee.org/document/9679016">DCF</a> algorithm for cluster analysis.</p>
 
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">&#182;</a></h2><p>The original density peaks clustering (DPC) algorithm detects modes as points with high density and large distance to points of higher density, and hence often fails to adequately represent clusters with areas of relatively uniform density.</p>
-<p>DCF uses the peak-finding criterion of DPC to estimate cluster cores. The peak-finding criterion is computed for each point, and the instance with maximum value is selected as a center. The cluster core containing this center is then found, and all instances belonging to it are removed from consideration as potential centers. The algorithm continues detecting cluster cores until no more remain in the data. The allocation procedure is unchanged from the DPC method, each non-center point is allocated to the same cluster as its nearest neighbor of higher empirical density.</p>
-<p>The improvements offered by DCF are twofold:</p>
+<h2 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">&#182;</a></h2><p>DCF is the acronym for density-core finding, an improvement on the popular <a href="https://www.science.org/doi/abs/10.1126/science.1242072">density-peak clustering</a> (DPC) method. The DPC method detects modes as points with (1) high density and (2) large distance to points of higher density. Hence, it often fails to adequately represent clusters with areas of relatively uniform density.</p>
+<p>DCF is both efficient and robust, gracefully scaling to big datasets. The improvements offered by DCF are twofold:</p>
 <ul>
 <li>the algorithm is robust to noise in the density estimate and thus detects clusters at varying densities; </li>
 <li>the algorithm is competent at deciding the correct number of clusters, even when the number of clusters is very high. </li>
 </ul>
-<p>Improvements in the DCF algorithm are the result of directing the peak-finding technique to discover modal sets, rather than point modes.</p>
+<p>The improvements are the result of directing the peak-finding technique to discover modal sets, rather than point modes.</p>
 
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="The-Algorithm">The Algorithm<a class="anchor-link" href="#The-Algorithm">&#182;</a></h2><p>The DCF algorithm consists of the following main steps:</p><p><strong>(1)</strong> Compute the peak-finding criterion for each point and select the instance $\mathbf{x}$ with maximal value.</p><p><strong>(2)</strong> The component set $\mathbf{S}_{\beta}(\mathbf{x})$ containing $\mathbf{x}$ is the first cluster core. All points in $\mathbf{S}_{\beta}(\mathbf{x})$ are labeled with $Assessed$ and excluded from further consideration.</p><p><strong>(3)</strong> The instance $\mathbf{x}$ with maximal value of the peak-finding criterion, yet to be assessed, is selected.</p><p><strong>(4)</strong> The component set $\mathbf{S}_{\beta}(\mathbf{x})$ containing $\mathbf{x}$ is found.
-*     All points in $\mathbf{S}_{\beta}(\mathbf{x})$ are labeled with $Assessed$ and excluded from further consideration.
-*     $\mathbf{S}_{\beta}(\mathbf{x})$ is another cluster core only if it is disjoint from all previously detected cluster cores.
-</p><p><strong>(5)</strong> Repeat steps 3 and 4 until all points have been labeled with $Assessed$.</p><p>Each cluster core represents a different cluster. After step 5, there will be many data points that are labeled with $Assessed$ but do not belong to any cluster core set. These non-core points are from the component sets $\mathbf{S}_{\beta}(\mathbf{x})$ in step 4 that overlap with previously detected cluster cores.</p><p><strong>(6)</strong> Each non-core point is assigned to the same cluster as its nearest neighbor of higher density.</p>
+<h2 id="The-Algorithm">The Algorithm<a class="anchor-link" href="#The-Algorithm">&#182;</a></h2><p>The DCF algorithm consists of the following main steps:</p><div style="background-color:rgba(0, 0, 0, 0.0470588); padding:10px 0;font-family:monospace;">
+
+<p><strong>(1)</strong> Compute the peak-finding criterion for each data point and select the instance $\mathbf{x}$ with maximal value.</p>
+
+<p><strong>(2)</strong> The component set $\mathbf{S}_{\beta}(\mathbf{x})$ containing $\mathbf{x}$ is the first cluster core. All points in $\mathbf{S}_{\beta}(\mathbf{x})$ are labelled with $Assessed$ and excluded from further consideration.</p>
+
+<p><strong>(3)</strong> The instance $\mathbf{x}$ with maximal value of the peak-finding criterion, yet to be assessed, is selected.</p>
+
+<p><strong>(4)</strong> The component set $\mathbf{S}_{\beta}(\mathbf{x})$ containing $\mathbf{x}$ is found.
+<ul>
+    <li>All points in $\mathbf{S}_{\beta}(\mathbf{x})$ are labelled with $Assessed$ and excluded from further consideration.</li>
+    <li>$\mathbf{S}_{\beta}(\mathbf{x})$ is another cluster core only if it is disjoint from all previously detected cluster cores.</li>
+</ul>
+</p>
+
+<p><strong>(5)</strong> Repeat Steps 3 and 4 until all points have been labelled with $Assessed$.</p>
+</div><p>Each cluster core represents a different cluster, and the number of detected cluster cores is the number of clusters in the data. After Step 5, there will be many data points that are labelled with $Assessed$ but do not belong to any cluster core set. These non-core points are from the component sets $\mathbf{S}_{\beta}(\mathbf{x})$ in Step 4 that overlap with previously detected cluster cores.</p><div style="background-color:rgba(0, 0, 0, 0.0470588); padding:10px 0;font-family:monospace;">
+<p><strong>(6)</strong> Each non-core point is assigned to the same cluster as its nearest neighbor of higher density.</p>
+</div><p>DCF uses the peak-finding criterion of DPC to detect cluster cores. The peak-finding criterion is computed for each data point, and the instance with maximum value is selected as a center (Step 1). The cluster core containing this center is then found, and all instances belonging to it are removed from consideration as potential centers (Step 2). The algorithm continues detecting cluster cores until no more remain in the data (Steps 3-5). The allocation procedure is unchanged from the DPC method: each non-center point is allocated to the same cluster as its nearest neighbor of higher estimated density (Step 6).</p>
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Point-Modes-vs-Cluster-Cores">Point Modes vs Cluster Cores<a class="anchor-link" href="#Point-Modes-vs-Cluster-Cores">&#182;</a></h2><p><img src="images/DCF_compare1.png" style="width: 800px;"/></p><p>An illustrative example demonstrating the benefits of seeking cluster cores of the density. The black curve represents the underlying density and the grey histogram represents a sample from the density. Left: DPC incorrectly selects both centers from the first cluster, as the noise in the density estimate causes the peak-finding method to favor the high-density cluster. Right: Cluster cores, represented by dashed lines, better represent the cluster centers.</p><p><img src="images/DCF_compare2.png" style="width: 750px;"/></p><p>Comparison of the DPC and DCF methods when applied to the Noisy Circles dataset. The Noisy Circles dataset contains two clusters, a high-density cluster (inner circle) and a low-density cluster (outer circle). The DPC method, as seen on the left of the figure, proceeds by searching for the points with maximal values of the peak-finding criterion. This method erroneously selects the multiple centers from the inner cluster. The allocation mechanism incorrectly assigns all points in the outer cluster. For this example, seven points in the inner cluster have larger value of the peak-finding criterion than the maximum value in the outer cluster. </p><p>The DCF procedure can be seen on the right of the figure. We first select the instance of maximum density as the first peak. However, DCF proceeds to compute the cluster core associated with this point, the highlighted green points, and remove all elements of the core from consideration as centers. Of those remaining, the point with maximal value of the peak-finding criterion is in the outer cluster. The associated  cluster core is visible in yellow. As no edge in the $k$-NN graph exists between this cluster core and the first cluster core, it is accepted as a valid cluster core. The algorithm's termination procedure is invoked when assessing a third center. The third center is selected as before; however, as the cluster core associated with this point contains all of the instances in the dataset, the algorithm terminates. </p>
+<h2 id="The-Two-Inputs">The Two Inputs<a class="anchor-link" href="#The-Two-Inputs">&#182;</a></h2><p>The algorithm requires two user inputs: the neighborhood parameter $k$ (for density estimation) and the fluctuation parameter $\beta$ (for determining how much the density estimates can vary within a cluster core). In particular, the algorithm adopts a non-parametric density estimator: for any data point $\mathbf{x}\in\mathrm{R}^d$, its density estimate is
+\begin{equation*}
+\hat{f}(\mathbf{x})=\frac{k}{\mbox{sample size}\times \mbox{volume of the unit sphere in } \mathrm{R}^d \times r_k(\mathbf{x})^d},
+\end{equation*}
+where $r_k(\mathbf{x})$ is the  distance between $\mathbf{x}$ and its $k$th nearest neighbor in $\mathcal{X}$. For a user, specifying the value $k$ is much easier than specifying the cutting-off distance value in the DPC algorithm.</p>
+<p>The definition of cluster core depends on the notion of mutual $k$-NN graph. Let $G$ denote the undirected mutual $k$-NN graph constructed from the whole dataset $\mathcal{X}$. (There is an edge between two vertices in $G$, if and only if they are one (out of $k$) nearest neighbor of each other.) We here explain how the first cluster core in Step 2 is determined. Let $\mathbf{x}^*$ be the point with the maximal value of the peak-finding criterion. Then the subset $S=\{\mathbf{x}\in\mathcal{X}: \hat{f}(\mathbf{x})\geq (1-\beta)\hat{f}(\mathbf{x}^*)\}$ contains all the data points with their density estimate ranging in the interval $[(1-\beta)\hat{f}(\mathbf{x}^*), \hat{f}(\mathbf{x}^*)]$. The subset $S$ determines a sub-graph of $G$:</p>
+<p><ul>
+    <li>The vertices of the sub-graph are the data points in $S$.</li>
+    <li>There is an edge between two vertices in the sub-graph, only if there is an edge between them in the original graph $G$.</li>
+</ul>
+Then the cluster core $\mathbf{S}_{\beta}(\mathbf{x}^*)$ is simply the connected component of the sub-graph that contains the point/vertex $\mathbf{x}^*$.</p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Point-Modes-vs-Cluster-Cores">Point Modes vs Cluster Cores<a class="anchor-link" href="#Point-Modes-vs-Cluster-Cores">&#182;</a></h2><p><img src="images/DCF_compare1.png" style="width: 800px;"/></p><p>An illustrative example demonstrating the benefits of seeking cluster cores of the density. The black curve represents the underlying density and the grey histogram represents a sample from the density. Left: DPC incorrectly selects both centers from the first cluster, as the noise in the density estimate causes the peak-finding method to favor the high-density cluster. Right: Cluster cores, represented by dashed lines, better represent the cluster centers.</p><p><img src="images/DCF_compare2.png" style="width: 750px;"/></p><p>Comparison of the DPC and DCF methods when applied to the Noisy Circles dataset. The Noisy Circles dataset contains two clusters, a high-density cluster (inner circle) and a low-density cluster (outer circle). The DPC method, as seen on the left of the figure, proceeds by searching for the points with maximal values of the peak-finding criterion. This method erroneously selects the multiple centers from the inner cluster. The allocation mechanism incorrectly assigns all points in the outer cluster. For this example, seven points in the inner cluster have larger value of the peak-finding criterion than the maximum value in the outer cluster. </p><p>The DCF procedure can be seen on the right of the figure. We first select the instance of maximum density as the first peak. However, DCF proceeds to compute the cluster core associated with this point, the highlighted larger green points, and remove all elements of the core from consideration as centers. Of those remaining, the point with maximal value of the peak-finding criterion is in the outer cluster. The associated  cluster core is visible in yellow. As no edge in the $k$-NN graph exists between this cluster core and the first cluster core, it is accepted as a valid cluster core. The algorithm's termination procedure is invoked when assessing a third center. The third center is selected as before; however, as the cluster core associated with this point contains all of the instances in the dataset, the algorithm terminates. </p>
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
