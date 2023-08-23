@@ -1,3 +1,3 @@
 # Functional Data Clustering
 
-This is the repository for our <a href="https://functional-data-clustering.github.io/" target="_blank">FunClub</a> webpage.
+View our FunClub webpage at <a href="https://www.scss.tcd.ie/mimi.zhang/" target="_blank">https://www.scss.tcd.ie/mimi.zhang/</a>.
